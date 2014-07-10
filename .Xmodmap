@@ -1,0 +1,4 @@
+! I dislike caps lock. The multi key is much more useful.
+remove Lock = Caps_Lock
+keysym Caps_Lock = Multi_key
+add Lock = Caps_Lock
