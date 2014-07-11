@@ -1,0 +1,7 @@
+[user]
+	email = micha@rosetree.de
+	name = Micha Rosenbaum
+
+[core]
+	editor = gvim
+	excludesfile = ~/.gitexcludes
