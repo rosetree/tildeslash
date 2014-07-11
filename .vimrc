@@ -93,6 +93,8 @@ if has("gui_running")
 	set guioptions-=r
 	" Disable scrollbar on the left (L)
 	set guioptions-=L
+	" Disable menubar at the top (m)
+	set guioptions-=m
 	" Activate a dark colorscheme
 	colorscheme green-on-dark-gray
 	set guicursor=n:blinkon0
