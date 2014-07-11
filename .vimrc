@@ -77,6 +77,9 @@ inoremap jj <ESC>
 " Open new vertical split window and switch to it.
 nnoremap <Leader>w <C-w>v<C-w>l
 
+" Write and source the current file
+nnoremap <Leader>ws :w<CR>:so %<CR>
+
 " Disable search highlighting with <C-n> in normal mode.
 nmap <Leader><Space> :set hls! hls?<CR>
 " Use normal regex to search.
