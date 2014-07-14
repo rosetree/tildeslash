@@ -49,7 +49,6 @@ inoremap <C-U> <C-G>u<C-U>
 "imap ,,, <esc>bdwa<<esc>pa><cr></<esc>pa><esc>kA
 
 " Remove trailing whitespace when hitting F12.
-" TODO: Do this while staying on the same position.
 :nnoremap <silent> <F12> :let _s=@/<Bar>:let position=getpos(".")<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:call setpos('.', position)<Bar>:nohl<CR>
 
 " When pressing <F11> toggle relative numbers. Disable normal numbers before
