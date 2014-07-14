@@ -1,7 +1,7 @@
 " ~/.vimrc
 "
 " Maintainer:	Micha Rosenbaum <micha@rosetree.de>
-" Last Change:	2014-06-27
+" Last Change:	2014-07-14
 
 " Use Vim settings, rather than Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
@@ -12,7 +12,6 @@ set backspace=indent,eol,start
 set nobackup		" do not keep a backup file
 set history=50		" keep 50 lines of command line history
 set ruler		" show the cursor position all the time
-"set cursorline		" show current line
 set showcmd		" display incomplete commands
 set incsearch		" do incremental searching
 set encoding=utf-8	" use UTF-8
@@ -46,10 +45,6 @@ map Q gq
 " so that you can undo CTRL-U after inserting a line break.
 inoremap <C-U> <C-G>u<C-U>
 
-" type table,,, to get <table></table> automatically close a tag
-" TODO: Does not work for one letter tags
-"imap ,,, <esc>bdwa<<esc>pa><cr></<esc>pa><esc>kA
-
 " Remove trailing whitespace when hitting F12.
 :nnoremap <silent> <F12> :let _s=@/<Bar>:let position=getpos(".")<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:call setpos('.', position)<Bar>:nohl<CR>
 
@@ -81,7 +76,7 @@ nnoremap <Leader>w <C-w>v<C-w>l
 " Write and source the current file
 nnoremap <Leader>ws :w<CR>:so %<CR>
 
-" Disable search highlighting with <C-n> in normal mode.
+" Toggle search highlight with <Leader><Space>.
 nmap <Leader><Space> :set hls! hls?<CR>
 " Use normal regex to search.
 nnoremap / /\v
@@ -186,9 +181,6 @@ function! HLNext (blinktime)
 	set invcursorline
 	redraw
 endfunction
-
-vmap <expr>  ++  VMATH_YankAndAnalyse()
-nmap         ++  vip++
 ""===[ Until here from tinyurl.com/IBV2013 ]
 
 " vim: nospell
