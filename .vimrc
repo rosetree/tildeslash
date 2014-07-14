@@ -7,36 +7,59 @@
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
-" allow backspacing over everything in insert mode
+" Allow backspacing over everything in insert mode.
 set backspace=indent,eol,start
-set nobackup		" do not keep a backup file
-set history=50		" keep 50 lines of command line history
-set ruler		" show the cursor position all the time
-set showcmd		" display incomplete commands
-set incsearch		" do incremental searching
-set encoding=utf-8	" use UTF-8
-set autoread		" Autoreread files that changed on disk
-set ignorecase		" Ignore case when searching
-set smartcase		" But don't ignore it, when I use uppercase letters
-set gdefault		" always add /g per default
-set colorcolumn=80	" Show long lines
-set number		" Show line numbers per default
-set showmatch		" Show matching parenthesis/brackets
-set wrap		" Wrap lines
-set viminfo+=n~/tmp/.vim/viminfo " don't store .viminfo in $HOME
-" The two slashes at the end of the directory tell Vim it should use the
+" Don't keep make backups of modified files.
+set nobackup
+set nowritebackup
+" Keep 50 lines of command line history.
+set history=50
+" Show the cursor position in the statusbar all the time.
+set ruler
+" Display incomplete commands in the lower right corner.
+set showcmd
+" Enable incremental searching.
+set incsearch
+" Use UTF-8.
+set encoding=utf-8
+" Autoreread files that changed on disk.
+set autoread
+" Ignore case when searching for lowercase patterns.
+set ignorecase
+" But don't ignore it, when I use uppercase patterns.
+set smartcase
+" Assume I want to substitute all matches. (See ':help gdefault' for more
+" information, using a 'g' flag with this option set, will turn that feature
+" off.)
+set gdefault
+" Show when I'm about to cross the column 80.
+set colorcolumn=80
+" Show line numbers per default.
+set number
+" Show matching parenthesis/brackets.
+set showmatch
+" Wrap lines that are to long for my view.
+set wrap
+" Don't store viminfo in my $HOME.
+set viminfo+=n~/tmp/.vim/viminfo
+" The two slashes at the end of the swap directory tell Vim it should use the
 " whole path as file name. `/` is replaced with `%`.
-set directory^=~/tmp/.vim/swap// " swap file directory
-set laststatus=2	" Always show the status line.
-set mouse=""		" Disable mouse; I don't use it anyway.
+set directory^=~/tmp/.vim/swap//
+" Always show the status line.
+set laststatus=2
+" Disable my mouse in Vim; I don't use it anyway.
+set mouse=""
 " Ignore some files
 set wildignore=*.pdf,*.aux,*.toc,*.lot,*.out,*.lock,*.desktop,*.lof
-set ssop-=options    " do not store global and local values in a session
-" Show some whitespace
+" Do not store global and local values in a session. They are likely to change
+" from time to time.
+set ssop-=options
+" Show some whitespace.
 set listchars=tab:▶\ ,nbsp:_,trail:·
 set list
 
-let g:tex_flavor='latex' " Default tex mode: LaTeX
+" Default tex mode: LaTeX.
+let g:tex_flavor='latex'
 
 " Don't use Ex mode, use Q for formatting
 map Q gq
@@ -67,9 +90,6 @@ inoremap <Right> <NOP>
 inoremap <Down> <NOP>
 inoremap <Left> <NOP>
 
-" Exit insert mode faster then hitting escape.
-inoremap jj <ESC>
-
 " Open new vertical split window and switch to it.
 nnoremap <Leader>w <C-w>v<C-w>l
 
@@ -78,6 +98,7 @@ nnoremap <Leader>ws :w<CR>:so %<CR>
 
 " Toggle search highlight with <Leader><Space>.
 nmap <Leader><Space> :set hls! hls?<CR>
+
 " Use normal regex to search.
 nnoremap / /\v
 vnoremap / /\v
@@ -96,6 +117,8 @@ if has("gui_running")
 	set guioptions-=m
 	" Activate a dark colorscheme
 	colorscheme green-on-dark-gray
+	" Turn of blinking cursor in normal mode. Keep blinking in insert mode
+	" to remind my off leaving it when I finished typing.
 	set guicursor=n:blinkon0
 endif
 
@@ -120,17 +143,17 @@ if has("autocmd")
 	augroup vimrcEx
 		au!
 
-		" Override filetypes
+		" All files ending with `.md` should be handled as markdown.
 		au BufNewFile,BufRead *.md setlocal filetype=markdown
-
 		" For all text files set 'textwidth' to 78 characters.
 		au FileType text setlocal textwidth=78
-
 		" Indent LaTeX with 2 spaces
 		au FileType LaTeX setlocal sw=2 ts=2 et
 		" Indent Ruby with 2 spaces
 		au FileType ruby,eruby setlocal sw=2 ts=2 et
 
+		" Enable spell checking when an language code is present in
+		" the file name.
 		au BufNewFile,BufRead *.en.* setlocal spell spelllang=en
 		au BufNewFile,BufRead *.de.* setlocal spell spelllang=de
 
@@ -147,7 +170,8 @@ if has("autocmd")
 	augroup END
 
 else
-	set autoindent		" always set autoindenting on
+	" Always set autoindenting on.
+	set autoindent
 endif " has("autocmd")
 
 " Convenient command to see the difference between the current buffer and the
@@ -157,16 +181,6 @@ if !exists(":DiffOrig")
 	command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
 				\ | wincmd p | diffthis
 endif
-
-" Show syntax highlighting groups for word under cursor
-nmap <C-S-P> :call <SID>SynStack()<CR>
-function! <SID>SynStack()
-	if !exists("*synstack")
-		return
-	endif
-	echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
-endfunc
-
 
 ""===[ From tinyurl.com/IBV2013 ]
 " This rewires n and N to do the highlighing...
@@ -183,5 +197,4 @@ function! HLNext (blinktime)
 endfunction
 ""===[ Until here from tinyurl.com/IBV2013 ]
 
-" vim: nospell
 " eof ~/.vimrc
