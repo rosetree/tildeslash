@@ -25,7 +25,9 @@ set number		" Show line numbers per default
 set showmatch		" Show matching parenthesis/brackets
 set wrap		" Wrap lines
 set viminfo+=n~/tmp/.vim/viminfo " don't store .viminfo in $HOME
-set directory^=~/tmp/.vim/swap " swap file directory
+" The two slashes at the end of the directory tell Vim it should use the
+" whole path as file name. `/` is replaced with `%`.
+set directory^=~/tmp/.vim/swap// " swap file directory
 set laststatus=2	" Always show the status line.
 set mouse=""		" Disable mouse; I don't use it anyway.
 " Ignore some files
