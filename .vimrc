@@ -7,6 +7,13 @@
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
+" Load pathogen from the bundle directory.
+runtime bundle/pathogen/autoload/pathogen.vim
+" Plugins in ~/.vim/bundle will be installed automatically.
+call pathogen#runtime_append_all_bundles()
+" Also install the help pages from the automatically installed plugins.
+call pathogen#helptags()
+
 " Allow backspacing over everything in insert mode.
 set backspace=indent,eol,start
 " Don't keep make backups of modified files.
