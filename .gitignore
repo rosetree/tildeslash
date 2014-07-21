@@ -1,0 +1,8 @@
+bin
+# I don't want to show my private parts to the public.
+.private
+# Vim related stuff
+.vim/spell
+.vim/.netrwhist*
+# I'm not using Emacs at the moment
+.emacs.d
