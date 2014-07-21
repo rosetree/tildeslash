@@ -10,13 +10,13 @@ set nocompatible
 " Load pathogen from the bundle directory.
 runtime bundle/pathogen/autoload/pathogen.vim
 " Plugins in ~/.vim/bundle will be installed automatically.
-call pathogen#runtime_append_all_bundles()
+call pathogen#infect()
 " Also install the help pages from the automatically installed plugins.
 call pathogen#helptags()
 
 " Allow backspacing over everything in insert mode.
 set backspace=indent,eol,start
-" Don't keep make backups of modified files.
+" Don't keep backups of modified files.
 set nobackup
 set nowritebackup
 " Keep 50 lines of command line history.
