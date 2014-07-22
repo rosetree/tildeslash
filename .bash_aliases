@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# Some ls aliases
+alias ll='ls -AlhF'
+alias la='ls -A'
+alias l='ls -CF'
+
 # Automatically create directory paths.
 alias mkdir='mkdir -p'
 # Start GVim with local session file
