@@ -98,10 +98,13 @@ inoremap <Down> <NOP>
 inoremap <Left> <NOP>
 
 " Open new vertical split window and switch to it.
-nnoremap <Leader>w <C-w>v<C-w>l
+nnoremap <Leader>v <C-w>v<C-w>l
 
 " Write and source the current file
-nnoremap <Leader>ws :w<CR>:so %<CR>
+nnoremap <Leader>so :w<CR>:so %<CR>
+
+" Quickly open this file.
+nnoremap <Leader><Leader> :e ~/.vimrc<CR>
 
 " Toggle search highlight with <Leader><Space>.
 nmap <Leader><Space> :set hls! hls?<CR>
