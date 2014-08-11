@@ -10,7 +10,7 @@ set nocompatible
 " Load pathogen from the bundle directory.
 runtime bundle/pathogen/autoload/pathogen.vim
 " Plugins in ~/.vim/bundle will be installed automatically.
-call pathogen#infect()
+call pathogen#infect('~/.vim/bundle/{}', '~/tmp/.vim/bundle/{}')
 " Also install the help pages from the automatically installed plugins.
 call pathogen#helptags()
 

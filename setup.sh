@@ -24,5 +24,6 @@ ln -s ~/.tildeslash/.vim ~/.vim
 
 # Directory used to store temporary vim files.
 mkdir -p ~/tmp/.vim/swap
+mkdir -p ~/tmp/.vim/bundle
 
 source "./.private/setup.sh"
