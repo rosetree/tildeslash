@@ -39,8 +39,6 @@ set smartcase
 " information, using a 'g' flag with this option set, will turn that feature
 " off.)
 set gdefault
-" Show when I'm about to cross the column 80.
-set colorcolumn=80
 " Show line numbers per default.
 set number
 " Show matching parenthesis/brackets.
@@ -117,6 +115,8 @@ vnoremap / /\v
 cabbr <expr> %% expand('%:p:h')
 
 if has("gui_running")
+	" Show when I'm about to cross the column 80.
+	set colorcolumn=80
 	" Disable toolbar (T)
 	set guioptions-=T
 	" Disable scrollbar (r)
@@ -130,6 +130,9 @@ if has("gui_running")
 	" Turn of blinking cursor in normal mode. Keep blinking in insert mode
 	" to remind my off leaving it when I finished typing.
 	set guicursor=n:blinkon0
+else
+	" Active terminal colorscheme
+	colorscheme desert
 endif
 
 " Switch syntax highlighting on, when the terminal has colors
