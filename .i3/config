@@ -178,3 +178,8 @@ exec --no-startup-id xsetroot -solid '#111111'
 
 # Don‛t show vertical borders.
 hide_edge_borders both
+
+# Move active workspace to the monitor connected to VGA.
+bindsym $mod+m move workspace to output VGA-0
+# Move active workspace to the Laptop monitor.
+bindsym $mod+Shift+m move workspace to output LVDS
