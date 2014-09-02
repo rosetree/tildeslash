@@ -24,4 +24,7 @@ ln -s ~/.tildeslash/.vim ~/.vim
 mkdir -p ~/tmp/.vim/swap
 mkdir -p ~/tmp/.vim/bundle
 
+# Install vim plugins.
+cd ~/.tildeslash && git submodule update --init
+
 source "./.private/setup.sh"
