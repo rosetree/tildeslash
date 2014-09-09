@@ -5,6 +5,7 @@ rm -f ~/.bash_aliases
 rm -f ~/.gitexcludes
 rm -f ~/.gitconfig
 rm -f ~/.signature
+rm -f ~/.Xmodmap
 rm -f ~/.vimrc
 rm -rf ~/.i3
 rm -rf ~/bin
@@ -15,6 +16,7 @@ ln -s ~/.tildeslash/.bash_aliases ~/.bash_aliases
 ln -s ~/.tildeslash/.gitexcludes ~/.gitexcludes
 ln -s ~/.tildeslash/.gitconfig ~/.gitconfig
 ln -s ~/.tildeslash/.signature ~/.signature
+ln -s ~/.tildeslash/.Xmodmap ~/.Xmodmap
 ln -s ~/.tildeslash/.vimrc ~/.vimrc
 ln -s ~/.tildeslash/.i3 ~/.i3
 ln -s ~/.tildeslash/bin ~/bin
