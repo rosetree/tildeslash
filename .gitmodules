@@ -14,3 +14,7 @@
 	path = .vim/bundle/surround
 	url = https://github.com/tpope/vim-surround.git
 	ignore = dirty
+[submodule ".vim/bundle/rails"]
+	path = .vim/bundle/rails
+	url = https://github.com/tpope/vim-rails.git
+	ignore = dirty
