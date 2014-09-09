@@ -76,10 +76,6 @@ inoremap <C-U> <C-G>u<C-U>
 " Remove trailing whitespace when hitting F12.
 :nnoremap <silent> <F12> :let _s=@/<Bar>:let position=getpos(".")<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:call setpos('.', position)<Bar>:nohl<CR>
 
-" When pressing <F11> toggle relative numbers. Disable normal numbers before
-" enabling relative numbers, because of awkward behaviour.
-:nnoremap <silent> <F11> :set nonu rnu! rnu?<CR>
-
 " <C-F11> toggles normal line numbers and shows current value. Disable
 " relative line numbers before showing normal line numbers (see above).
 :nnoremap <silent> <C-F11> :set nornu nu! nu?<CR>
@@ -164,6 +160,8 @@ if has("autocmd")
 		au FileType LaTeX setlocal sw=2 ts=2 et
 		" Indent Ruby with 2 spaces
 		au FileType ruby,eruby setlocal sw=2 ts=2 et
+		" Indent html,php with 2 spaces
+		au FileType html,php setlocal sw=2 ts=2 et
 
 		" Enable spell checking when an language code is present in
 		" the file name.
