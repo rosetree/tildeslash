@@ -1,7 +1,7 @@
 " ~/.vimrc
 "
 " Maintainer:	Micha Rosenbaum <micha@rosetree.de>
-" Last Change:	2014-07-14
+" Last Change:	2014-09-16
 
 " Use Vim settings, rather than Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
@@ -93,12 +93,14 @@ inoremap <Left> <NOP>
 
 " Open new vertical split window and switch to it.
 nnoremap <Leader>v <C-w>v<C-w>l
+" Open new horizontal split window and switch to it.
+nnoremap <Leader>h <C-w>s<C-w>j
 
 " Write and source the current file
 nnoremap <Leader>so :w<CR>:so %<CR>
 
 " Quickly open this file.
-nnoremap <Leader><Leader> :e ~/.vimrc<CR>
+nnoremap <Leader><Leader> :tabe ~/.vimrc<CR>
 
 " Toggle search highlight with <Leader><Space>.
 nmap <Leader><Space> :set hls! hls?<CR>
