@@ -5,6 +5,10 @@ alias ll='ls -AlhF'
 alias la='ls -A'
 alias l='ls -CF'
 
+# Quickly connect monitors
+alias mon_cm='xrandr --output VGA-0 --auto --rotate left --right-of LVDS'
+alias mon_jm='xrandr --output VGA-0 --auto --above LVDS'
+
 # Automatically create directory paths.
 alias mkdir='mkdir -p'
 
