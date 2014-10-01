@@ -22,3 +22,7 @@
 	path = .vim/bundle/switch
 	url = https://github.com/AndrewRadev/switch.vim.git
 	ignore = dirty
+[submodule ".vim/bundle/coffeescript"]
+	path = .vim/bundle/coffeescript
+	url = https://github.com/kchmck/vim-coffee-script.git
+	ignore = dirty
