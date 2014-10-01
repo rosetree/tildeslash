@@ -165,7 +165,7 @@ if has("autocmd")
 		" Indent html,php with 2 spaces
 		au FileType html,php setlocal sw=2 ts=2 et
 		" Indent coffeescript with 2 spaces and enable fold by indent
-		au FileType coffee setlocal sw=2 ts=2 et foldmethod=indent nofoldenable
+		au BufNewFile,BufRead *.coffee setlocal sw=2 ts=2 et foldmethod=indent nofoldenable
 
 		" Enable spell checking when an language code is present in
 		" the file name.
