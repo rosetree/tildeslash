@@ -159,7 +159,8 @@ if has("autocmd")
 		" For all text files set 'textwidth' to 78 characters.
 		au FileType text setlocal textwidth=78
 		" Indent LaTeX with 2 spaces
-		au FileType LaTeX setlocal sw=2 ts=2 et
+		au BufNewFile,BufRead *.tex setlocal sw=2 ts=2 et
+		au BufNewFile,BufRead *.sty setlocal sw=2 ts=2 et
 		" Indent Ruby with 2 spaces
 		au FileType ruby,eruby setlocal sw=2 ts=2 et
 		" Indent html,php with 2 spaces
