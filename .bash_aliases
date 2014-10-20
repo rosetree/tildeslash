@@ -18,6 +18,10 @@ alias markdown='kramdown'
 # Download youtube videos in opus.
 alias yt2opus='youtube-dl -x --audio-format opus --audio-quality 0'
 
+# Show custom git logs.
+#alias gitlogs='git log --format="%Cgreen%h%Creset %s%n%Cblue(%an <%ae>)"%n'
+alias gitlogs='git log --format="%Cgreen%h %Cblue(%an <%ae>)"%n%s%n'
+
 # Open files in existing GVim window
 alias gvim='gvim -p --remote-tab-silent'
 # Start GVim with local session file
