@@ -26,3 +26,11 @@
 	path = .vim/bundle/coffeescript
 	url = https://github.com/kchmck/vim-coffee-script.git
 	ignore = dirty
+[submodule ".vim/bundle/ultisnips"]
+	path = .vim/bundle/ultisnips
+	url = https://github.com/SirVer/ultisnips.git
+	ignore = dirty
+[submodule ".vim/bundle/vim-snippets"]
+	path = .vim/bundle/vim-snippets
+	url = https://github.com/honza/vim-snippets.git
+	ignore = dirty
