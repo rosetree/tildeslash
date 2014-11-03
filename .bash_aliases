@@ -29,6 +29,16 @@ alias svim='gvim -S .session.vim'
 # Start Vim in terminal with local session file
 alias vims='vim -S .session.vim'
 
+# A delete function, that only moves deleted files to a folder in ~. This
+# function requires a tag as first parameter.
+function delete ()
+{
+	NOW=`date +%Y%m%d%H%M%S`
+	DELETE_PATH=~/.deleted/$1-$NOW
+	shift
+	mkdir $DELETE_PATH && mv $@ $DELETE_PATH
+}
+
 # Learned from using `rm -rf ~/`
 # TODO: This could have a bad learning effect. Think about it.
 function rm ()
@@ -39,9 +49,7 @@ function rm ()
 	do
 		case $yn in
 			Yes )
-				NOW=`date +%Y%m%d%H%M%S`;
-				mkdir ~/.deleted/$NOW && mv $@ ~/.deleted/$NOW;
-				unset NOW;
+				delete "rm" $@
 				break;;
 			No )
 				return;;
@@ -49,12 +57,9 @@ function rm ()
 	done
 }
 
+# Convert an .html.erb file to .haml. Delete the old .html.erb file.
 function erb2haml ()
 {
-	NOW=`date +%Y%m%d%H%M%S`
-	DELETE_PATH=~/.deleted/erb2haml-$NOW
-
 	html2haml --erb $1.html.erb $1.haml
-	mkdir $DELETE_PATH
-	mv $1.html.erb $DELETE_PATH
+	delete "erb2html" $1.html.erb
 }
