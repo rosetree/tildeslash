@@ -49,8 +49,12 @@ function rm ()
 	done
 }
 
-# change To Directory and show the ToDo list
-function td ()
+function erb2haml ()
 {
-	cd "$@" && todo
+	NOW=`date +%Y%m%d%H%M%S`
+	DELETE_PATH=~/.deleted/erb2haml-$NOW
+
+	html2haml --erb $1.html.erb $1.haml
+	mkdir $DELETE_PATH
+	mv $1.html.erb $DELETE_PATH
 }
