@@ -1,7 +1,6 @@
 " ~/.vimrc
 "
-" Maintainer:	Micha Rosenbaum <micha@rosetree.de>
-" Last Change:	2014-09-16
+" https://github.com/rosetree/tildeslash
 
 " Use Vim settings, rather than Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
