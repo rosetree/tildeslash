@@ -124,7 +124,7 @@ if has("gui_running")
 	" Disable menubar at the top (m)
 	set guioptions-=m
 	" Activate a dark colorscheme
-	colorscheme green-on-dark-gray
+	colorscheme peachpuff
 	" Turn of blinking cursor in normal mode. Keep blinking in insert mode
 	" to remind my off leaving it when I finished typing.
 	set guicursor=n:blinkon0
@@ -212,5 +212,9 @@ function! HLNext (blinktime)
 	redraw
 endfunction
 ""===[ Until here from tinyurl.com/IBV2013 ]
+
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 " eof ~/.vimrc
