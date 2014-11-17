@@ -34,3 +34,7 @@
 	path = .vim/bundle/vim-snippets
 	url = https://github.com/honza/vim-snippets.git
 	ignore = dirty
+[submodule ".vim/bundle/easymotion"]
+	path = .vim/bundle/easymotion
+	url = https://github.com/Lokaltog/vim-easymotion.git
+	ignore = dirty

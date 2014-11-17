@@ -99,7 +99,10 @@ nnoremap <Leader>h <C-w>s<C-w>j
 nnoremap <Leader>so :w<CR>:so %<CR>
 
 " Quickly open this file.
-nnoremap <Leader><Leader> :tabe ~/.vimrc<CR>
+nnoremap <Leader>rc :e ~/.vimrc<CR>
+
+" Use `s{char}{char}{label}` to navigate through the file.
+nmap s <Plug>(easymotion-s2)
 
 " Toggle search highlight with <Leader><Space>.
 nmap <Leader><Space> :set hls! hls?<CR>
