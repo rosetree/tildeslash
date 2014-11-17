@@ -79,16 +79,18 @@ inoremap <C-U> <C-G>u<C-U>
 " relative line numbers before showing normal line numbers (see above).
 :nnoremap <silent> <C-F11> :set nornu nu! nu?<CR>
 
+" This way, I don't move my right hand from my homerow.
+noremap h ;
+noremap j h
+noremap k j
+noremap l k
+noremap ; l
+
 " Try breaking the habbit of using the arrow keys in Vim.
-nnoremap <Up> <NOP>
-nnoremap <Right> <NOP>
-nnoremap <Down> <NOP>
-nnoremap <Left> <NOP>
-" Don't move in insert mode.
-inoremap <Up> <NOP>
-inoremap <Right> <NOP>
-inoremap <Down> <NOP>
-inoremap <Left> <NOP>
+noremap <Up> <NOP>
+noremap <Right> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
 
 " Open new vertical split window and switch to it.
 nnoremap <Leader>v <C-w>v<C-w>l
