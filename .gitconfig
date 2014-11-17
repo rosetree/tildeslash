@@ -4,5 +4,11 @@
 	name = Micha Rosenbaum
 
 [core]
-	editor = gvim
+	editor = gvim --remote-silent
 	excludesfile = ~/.gitexcludes
+
+[gui]
+	editor = gvim --remote-silent
+
+[diff]
+	tool = meld

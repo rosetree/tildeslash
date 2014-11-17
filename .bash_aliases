@@ -23,7 +23,7 @@ alias yt2opus='youtube-dl -x --audio-format opus --audio-quality 0'
 alias gitlogs='git log --format="%Cgreen%h %Cblue(%an <%ae>)"%n%s%n'
 
 # Open files in existing GVim window
-alias gvim='gvim -p --remote-tab-silent'
+alias gvim='gvim --remote-silent'
 # Start GVim with local session file
 alias svim='gvim -S .session.vim'
 # Start Vim in terminal with local session file
