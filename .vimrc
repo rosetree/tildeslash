@@ -65,19 +65,16 @@ set list
 " Default tex mode: LaTeX.
 let g:tex_flavor='latex'
 
-" Don't use Ex mode, use Q for formatting
-map Q gq
-
 " CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
 " so that you can undo CTRL-U after inserting a line break.
 inoremap <C-U> <C-G>u<C-U>
 
-" Remove trailing whitespace when hitting F12.
-:nnoremap <silent> <F12> :let _s=@/<Bar>:let position=getpos(".")<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:call setpos('.', position)<Bar>:nohl<CR>
+" Sometimes I try to open another tab in my browser, while I am still in Vim.
+" Don't do anything at this mistake.
+nnoremap <C-t> <NOP>
 
-" <C-F11> toggles normal line numbers and shows current value. Disable
-" relative line numbers before showing normal line numbers (see above).
-:nnoremap <silent> <C-F11> :set nornu nu! nu?<CR>
+" Remove trailing whitespace when hitting F12.
+nnoremap <silent> <F12> :let _s=@/<Bar>:let position=getpos(".")<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:call setpos('.', position)<Bar>:nohl<CR>
 
 " This way, I don't move my right hand from my homerow.
 noremap h ;
@@ -85,6 +82,9 @@ noremap j h
 noremap k j
 noremap l k
 noremap ; l
+
+" Easy access to :Switch.
+nnoremap <Space> :Switch<CR>
 
 " Try breaking the habbit of using the arrow keys in Vim.
 noremap <Up> <NOP>
@@ -128,7 +128,7 @@ if has("gui_running")
 	" Disable menubar at the top (m)
 	set guioptions-=m
 	" Activate a dark colorscheme
-	colorscheme peachpuff
+	colorscheme desert
 	" Turn of blinking cursor in normal mode. Keep blinking in insert mode
 	" to remind my off leaving it when I finished typing.
 	set guicursor=n:blinkon0
