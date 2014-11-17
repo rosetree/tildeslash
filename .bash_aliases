@@ -29,9 +29,9 @@ alias svim='gvim -S .session.vim'
 # Start Vim in terminal with local session file
 alias vims='vim -S .session.vim'
 
-# This finds all lines containing `TODO', `FIXME', `XXX' or `###' in the
-# current working directory and all subdirectories.
-alias todo='grep -Enr --binary-file=without-match "(TODO|FIXME|(X|#){3})" .'
+# This finds all lines containing `TODO', `FIXME' or `XXX' in the current
+# working directory and all subdirectories.
+alias todo='grep -Enr --binary-file=without-match "(TODO|FIXME|X{3})" .'
 
 # A delete function, that only moves deleted files to a folder in ~. This
 # function requires a tag as first parameter.
