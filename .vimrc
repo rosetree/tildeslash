@@ -83,9 +83,6 @@ noremap k j
 noremap l k
 noremap ; l
 
-" Easy access to :Switch.
-nnoremap <Space> :Switch<CR>
-
 " Try breaking the habbit of using the arrow keys in Vim.
 noremap <Up> <NOP>
 noremap <Right> <NOP>
