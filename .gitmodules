@@ -6,10 +6,6 @@
 	path = .vim/bundle/gnupg
 	url = https://github.com/jamessan/vim-gnupg.git
 	ignore = dirty
-[submodule ".vim/bundle/limelight"]
-	path = .vim/bundle/limelight
-	url = https://github.com/junegunn/limelight.vim.git
-	ignore = dirty
 [submodule ".vim/bundle/surround"]
 	path = .vim/bundle/surround
 	url = https://github.com/tpope/vim-surround.git
