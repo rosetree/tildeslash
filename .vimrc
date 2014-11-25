@@ -59,7 +59,7 @@ set wildignore=*.pdf,*.aux,*.toc,*.lot,*.out,*.lock,*.desktop,*.lof
 " from time to time.
 set ssop-=options
 " Show some whitespace.
-set listchars=tab:▶\ ,nbsp:_,trail:·
+set listchars=tab:→\ ,nbsp:_,trail:·
 set list
 
 " Default tex mode: LaTeX.
@@ -103,6 +103,9 @@ nnoremap <Leader>so :w<CR>:so %<CR>
 " Quickly open this file.
 nnoremap <Leader>rc :e ~/.vimrc<CR>
 
+" Quickly open zeal and search for a keyword
+nnoremap gz :!zeal --query "<cword>"&<CR><CR>
+
 " Use `s{char}{char}{label}` to navigate through the file.
 nmap s <Plug>(easymotion-s2)
 
@@ -117,17 +120,14 @@ vnoremap / /\v
 cabbr <expr> %% expand('%:p:h')
 
 if has("gui_running")
-	" Show when I'm about to cross the column 80.
+	" Show when I'm about to cross the 80th column.
 	set colorcolumn=80
-	" Disable toolbar (T)
-	set guioptions-=T
-	" Disable scrollbar (r)
-	set guioptions-=r
-	" Disable scrollbar on the left (L)
-	set guioptions-=L
-	" Disable menubar at the top (m)
-	set guioptions-=m
-	" Activate a dark colorscheme
+	" Disable some gui features.
+	set guioptions-=T " toolbar
+	set guioptions-=r " scrollbar right
+	set guioptions-=L " scrollbar left
+	set guioptions-=m " menubar
+	" Choose your colorscheme.
 	colorscheme desert
 	" Turn of blinking cursor in normal mode. Keep blinking in insert mode
 	" to remind my off leaving it when I finished typing.
@@ -145,13 +145,14 @@ if &t_Co > 2 || has("gui_running")
 	match Todo /\(\(X\|%\)\{3}\|#MR\|TODO\)/
 endif
 
+" Make some changes to the selected colorscheme (desert).
+hi LineNr guifg=#666600
+hi ColorColumn guibg=#552222
+
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
 
 	" Enable file type detection.
-	" Use the default filetype settings, so that mail gets 'tw' set to 72,
-	" 'cindent' is on in C files, etc.
-	" Also load indent files, to automatically do language-dependent indenting.
 	filetype plugin indent on
 
 	" Put these in an autocmd group, so that we can delete them easily.
@@ -196,11 +197,7 @@ endif " has("autocmd")
 
 " Convenient command to see the difference between the current buffer and the
 " file it was loaded from, thus the changes you made.
-" Only define it when not defined already.
-if !exists(":DiffOrig")
-	command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
-				\ | wincmd p | diffthis
-endif
+command! DiffOrig :w !diff --context % -
 
 ""===[ From tinyurl.com/IBV2013 ]
 " This rewires n and N to do the highlighing...
