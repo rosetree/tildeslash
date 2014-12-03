@@ -1,50 +1,63 @@
 " ~/.vimrc
 "
-" https://github.com/rosetree/tildeslash
+" Source:
+"   https://github.com/rosetree/tildeslash
+"
+" Description:
+"   This is my personal Vim configuration. Never trust the comments. Instead
+"   read the official documentation with the `:help` command in Vim. For
+"   example `:help :ab`.
+"
+" Inspiration:
+"   https://github.com/jdavis/dotfiles/blob/master/.vimrc
+"   and many others ...
 
-" Use Vim settings, rather than Vi settings (much better!).
-" This must be first, because it changes other options as a side effect.
 set nocompatible
 
-" Load pathogen from the bundle directory.
+" Load pathogen, install plugins and help files.
 runtime bundle/pathogen/autoload/pathogen.vim
-" Plugins in ~/.vim/bundle will be installed automatically.
 call pathogen#infect('~/.vim/bundle/{}', '~/tmp/.vim/bundle/{}')
-" Also install the help pages from the automatically installed plugins.
 call pathogen#helptags()
 
 " Allow backspacing over everything in insert mode.
 set backspace=indent,eol,start
-" Don't keep backups of modified files.
-set nobackup
-set nowritebackup
-" Keep 50 lines of command line history.
-set history=50
-" Show the cursor position in the statusbar all the time.
-set ruler
-" Display incomplete commands in the lower right corner.
-set showcmd
-" Enable incremental searching.
-set incsearch
-" Use UTF-8.
+
 set encoding=utf-8
 " Autoreread files that changed on disk.
 set autoread
-" Ignore case when searching for lowercase patterns.
+" Don't keep backups of modified files.
+set nobackup
+set nowritebackup
+
+" Keep 50 lines of command line history.
+set history=50
+
+" Enable incremental searching.
+set incsearch
+" Ignore case, when I search for lowercase patterns.
 set ignorecase
-" But don't ignore it, when I use uppercase patterns.
+" Don't ignore case, when I search for uppercase patterns.
 set smartcase
-" Assume I want to substitute all matches. (See ':help gdefault' for more
-" information, using a 'g' flag with this option set, will turn that feature
-" off.)
+" Assume I want to substitute all matches.
 set gdefault
+
+" Show the cursor position in the statusbar.
+set ruler
+" Display incomplete commands in the lower right corner.
+set showcmd
 " Show line numbers per default.
 set number
 " Show matching parenthesis/brackets.
 set showmatch
+
+" Use some smart indent and tab defaults.
+set smarttab
+set smartindent
+set autoindent
+
 " Wrap lines that are to long for my view.
 set wrap
-" Don't store viminfo in my $HOME.
+" Don't store viminfo at $HOME.
 set viminfo+=n~/tmp/.vim/viminfo
 " The two slashes at the end of the swap directory tell Vim it should use the
 " whole path as file name. `/` is replaced with `%`.
@@ -53,7 +66,7 @@ set directory^=~/tmp/.vim/swap//
 set laststatus=2
 " Disable my mouse in Vim; I don't use it anyway.
 set mouse=""
-" Ignore some files
+" Ignore some file extensions.
 set wildignore=*.pdf,*.aux,*.toc,*.lot,*.out,*.lock,*.desktop,*.lof
 " Do not store global and local values in a session. They are likely to change
 " from time to time.
@@ -64,6 +77,11 @@ set list
 
 " Default tex mode: LaTeX.
 let g:tex_flavor='latex'
+
+" Use tab for snippets.
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 " CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
 " so that you can undo CTRL-U after inserting a line break.
@@ -76,6 +94,12 @@ nnoremap <C-t> <NOP>
 " Remove trailing whitespace when hitting F12.
 nnoremap <silent> <F12> :let _s=@/<Bar>:let position=getpos(".")<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:call setpos('.', position)<Bar>:nohl<CR>
 
+" Try breaking the habbit of using the arrow keys in Vim.
+noremap <Up> <NOP>
+noremap <Right> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+
 " This way, I don't move my right hand from my homerow.
 noremap h ;
 noremap j h
@@ -83,11 +107,6 @@ noremap k j
 noremap l k
 noremap ; l
 
-" Try breaking the habbit of using the arrow keys in Vim.
-noremap <Up> <NOP>
-noremap <Right> <NOP>
-noremap <Down> <NOP>
-noremap <Left> <NOP>
 " Copy from cursor to the end of the line.
 noremap Y y$
 
@@ -144,62 +163,49 @@ colorscheme desert
 hi LineNr guifg=#666600
 hi ColorColumn guibg=#552222
 
-" Only do this part when compiled with support for autocommands.
-if has("autocmd")
+" Enable file type detection.
+filetype plugin indent on
 
-	" Enable file type detection.
-	filetype plugin indent on
+" All files ending with `.md` should be handled as markdown.
+au BufNewFile,BufRead *.md setlocal filetype=markdown
+" For all text files set 'textwidth' to 78 characters.
+au FileType text setlocal textwidth=78
+" Indent LaTeX with 2 spaces
+au BufNewFile,BufRead *.tex setlocal sw=2 ts=2 et
+au BufNewFile,BufRead *.sty setlocal sw=2 ts=2 et
+" Indent Ruby with 2 spaces
+au FileType ruby,eruby setlocal sw=2 ts=2 et
+" Indent html,php with 2 spaces
+au FileType html,php setlocal sw=2 ts=2 et
+" Indent coffeescript with 2 spaces and enable fold by indent
+au BufNewFile,BufRead *.coffee setlocal sw=2 ts=2 et foldmethod=indent nofoldenable
 
-	" Put these in an autocmd group, so that we can delete them easily.
-	augroup vimrcEx
-		au!
+" Enable spell checking when an language code is present in the filename.
+au BufNewFile,BufRead *.en.* setlocal spell spelllang=en
+au BufNewFile,BufRead *.de.* setlocal spell spelllang=de
 
-		" All files ending with `.md` should be handled as markdown.
-		au BufNewFile,BufRead *.md setlocal filetype=markdown
-		" For all text files set 'textwidth' to 78 characters.
-		au FileType text setlocal textwidth=78
-		" Indent LaTeX with 2 spaces
-		au BufNewFile,BufRead *.tex setlocal sw=2 ts=2 et
-		au BufNewFile,BufRead *.sty setlocal sw=2 ts=2 et
-		" Indent Ruby with 2 spaces
-		au FileType ruby,eruby setlocal sw=2 ts=2 et
-		" Indent html,php with 2 spaces
-		au FileType html,php setlocal sw=2 ts=2 et
-		" Indent coffeescript with 2 spaces and enable fold by indent
-		au BufNewFile,BufRead *.coffee setlocal sw=2 ts=2 et foldmethod=indent nofoldenable
-
-		" Enable spell checking when an language code is present in
-		" the file name.
-		au BufNewFile,BufRead *.en.* setlocal spell spelllang=en
-		au BufNewFile,BufRead *.de.* setlocal spell spelllang=de
-
-		" When editing a file, always jump to the last known cursor position.
-		" Don't do it when the position is invalid or when inside an event handler
-		" (happens when dropping a file on gvim).
-		" Also don't do it when the mark is in the first line, that is the default
-		" position when opening a file.
-		au BufReadPost *
-					\ if line("'\"") > 1 && line("'\"") <= line("$") |
-					\   exe "normal! g`\"" |
-					\ endif
-
-	augroup END
-
-else
-	" Always set autoindenting on.
-	set autoindent
-endif " has("autocmd")
+" When editing a file, always jump to the last known cursor position.
+" Don't do it when the position is invalid or when inside an event handler
+" (happens when dropping a file on gvim).
+" Also don't do it when the mark is in the first line, that is the default
+" position when opening a file.
+au BufReadPost *
+			\ if line("'\"") > 1 && line("'\"") <= line("$") |
+			\   exe "normal! g`\"" |
+			\ endif
 
 " Convenient command to see the difference between the current buffer and the
 " file it was loaded from, thus the changes you made.
 command! DiffOrig :w !diff --context % -
 
-""===[ From tinyurl.com/IBV2013 ]
-" This rewires n and N to do the highlighing...
+" This rewires n and N to do the highlighing.
 nnoremap <silent> n   n:call HLNext(0.3)<cr>
 nnoremap <silent> N   N:call HLNext(0.3)<cr>
 
-" blink the line containing the match...
+" Source:
+"   http://tinyurl.com/IBV2013
+"
+" Blink the line containing the match.
 function! HLNext (blinktime)
 	set invcursorline
 	redraw
@@ -207,10 +213,6 @@ function! HLNext (blinktime)
 	set invcursorline
 	redraw
 endfunction
-""===[ Until here from tinyurl.com/IBV2013 ]
 
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-
+" vim: sw=2 ts=2 et
 " eof ~/.vimrc
