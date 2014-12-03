@@ -138,24 +138,24 @@ vnoremap / /\v
 cabbr <expr> %% expand('%:p:h')
 
 if has("gui_running")
-	" Show when I'm about to cross the 80th column.
-	set colorcolumn=80
-	" Disable some gui features.
-	set guioptions-=T " toolbar
-	set guioptions-=r " scrollbar right
-	set guioptions-=L " scrollbar left
-	set guioptions-=m " menubar
-	" Turn of blinking cursor in normal mode. Keep blinking in insert mode
-	" to remind my off leaving it when I finished typing.
-	set guicursor=n:blinkon0
+  " Show when I'm about to cross the 80th column.
+  set colorcolumn=80
+  " Disable some gui features.
+  set guioptions-=T " toolbar
+  set guioptions-=r " scrollbar right
+  set guioptions-=L " scrollbar left
+  set guioptions-=m " menubar
+  " Turn of blinking cursor in normal mode. Keep blinking in insert mode
+  " to remind my off leaving it when I finished typing.
+  set guicursor=n:blinkon0
 endif " has("gui_running")
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
 if &t_Co > 2 || has("gui_running")
-	syntax on
-	" set hlsearch
-	match Todo /\(\(X\|%\)\{3}\|#MR\|TODO\)/
+  syntax on
+  " set hlsearch
+  match Todo /\(\(X\|%\)\{3}\|#MR\|TODO\)/
 endif
 
 colorscheme desert
@@ -190,9 +190,9 @@ au BufNewFile,BufRead *.de.* setlocal spell spelllang=de
 " Also don't do it when the mark is in the first line, that is the default
 " position when opening a file.
 au BufReadPost *
-			\ if line("'\"") > 1 && line("'\"") <= line("$") |
-			\   exe "normal! g`\"" |
-			\ endif
+      \ if line("'\"") > 1 && line("'\"") <= line("$") |
+      \   exe "normal! g`\"" |
+      \ endif
 
 " Convenient command to see the difference between the current buffer and the
 " file it was loaded from, thus the changes you made.
@@ -207,11 +207,11 @@ nnoremap <silent> N   N:call HLNext(0.3)<cr>
 "
 " Blink the line containing the match.
 function! HLNext (blinktime)
-	set invcursorline
-	redraw
-	exec 'sleep ' . float2nr(a:blinktime * 1000) . 'm'
-	set invcursorline
-	redraw
+  set invcursorline
+  redraw
+  exec 'sleep ' . float2nr(a:blinktime * 1000) . 'm'
+  set invcursorline
+  redraw
 endfunction
 
 " vim: sw=2 ts=2 et
