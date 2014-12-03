@@ -88,6 +88,8 @@ noremap <Up> <NOP>
 noremap <Right> <NOP>
 noremap <Down> <NOP>
 noremap <Left> <NOP>
+" Copy from cursor to the end of the line.
+noremap Y y$
 
 " Open new vertical split window and switch to it.
 nnoremap <Leader>v <C-w>v<C-w>l
@@ -98,16 +100,16 @@ nnoremap <Leader>h <C-w>s<C-w>j
 nnoremap <Leader>so :w<CR>:so %<CR>
 
 " Quickly open this file.
-nnoremap <Leader>rc :e ~/.vimrc<CR>
+nnoremap <Leader>rc :e ~/.tildeslash/.vimrc<CR>
 
 " Quickly open zeal and search for a keyword
 nnoremap gz :!zeal --query "<cword>"&<CR><CR>
 
+" Quickly open meld and diff the current file with version control.
+nnoremap gd :!meld %&<CR><CR>
+
 " Use `s{char}{char}{label}` to navigate through the file.
 nmap s <Plug>(easymotion-s2)
-
-" Toggle search highlight with <Leader><Space>.
-nmap <Leader><Space> :set hls! hls?<CR>
 
 " Use normal regex to search.
 nnoremap / /\v
@@ -124,15 +126,10 @@ if has("gui_running")
 	set guioptions-=r " scrollbar right
 	set guioptions-=L " scrollbar left
 	set guioptions-=m " menubar
-	" Choose your colorscheme.
-	colorscheme desert
 	" Turn of blinking cursor in normal mode. Keep blinking in insert mode
 	" to remind my off leaving it when I finished typing.
 	set guicursor=n:blinkon0
-else
-	" Active terminal colorscheme
-	colorscheme desert
-endif
+endif " has("gui_running")
 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
@@ -142,7 +139,8 @@ if &t_Co > 2 || has("gui_running")
 	match Todo /\(\(X\|%\)\{3}\|#MR\|TODO\)/
 endif
 
-" Make some changes to the selected colorscheme (desert).
+colorscheme desert
+" Make some changes to colorscheme desert.
 hi LineNr guifg=#666600
 hi ColorColumn guibg=#552222
 
