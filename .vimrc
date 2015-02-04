@@ -66,6 +66,9 @@ set directory^=~/tmp/.vim/swap//
 set laststatus=2
 " Disable my mouse in Vim; I don't use it anyway.
 set mouse=""
+" Use bash-like behaviour by default
+set wildmode=longest,list,full
+set wildmenu
 " Ignore some file extensions.
 set wildignore=*.pdf,*.aux,*.toc,*.lot,*.out,*.lock,*.desktop,*.lof
 " Do not store global and local values in a session. They are likely to change
@@ -73,7 +76,7 @@ set wildignore=*.pdf,*.aux,*.toc,*.lot,*.out,*.lock,*.desktop,*.lof
 set ssop-=options
 " Show some whitespace.
 set listchars=tab:→\ ,nbsp:_,trail:·
-set list
+"set list
 
 " Default tex mode: LaTeX.
 let g:tex_flavor='latex'
@@ -99,13 +102,17 @@ noremap <Up> <NOP>
 noremap <Right> <NOP>
 noremap <Down> <NOP>
 noremap <Left> <NOP>
+noremap h <NOP>
+noremap j <NOP>
+noremap k <NOP>
+noremap l <NOP>
 
-" This way, I don't move my right hand from my homerow.
-noremap h ;
-noremap j h
-noremap k j
-noremap l k
-noremap ; l
+" Source:
+"   http://vimrcfu.com/snippet/77
+"
+" Move visual block up or down.
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
 
 " Copy from cursor to the end of the line.
 noremap Y y$
@@ -134,12 +141,18 @@ nmap s <Plug>(easymotion-s2)
 nnoremap / /\v
 vnoremap / /\v
 
+" Jump to first char with ^ and jump to first char in column, that is not
+" whitespace, with `0`.
+noremap 0 ^
+noremap <Home> ^
+noremap ^ 0
+
 " Easily edit files in the current directory (:e %%/)
 cabbr <expr> %% expand('%:p:h')
 
 if has("gui_running")
-  " Show when I'm about to cross the 80th column.
-  set colorcolumn=80
+  " Don’t show a colored column. I don’t pay any attention on it.
+  set colorcolumn=0
   " Disable some gui features.
   set guioptions-=T " toolbar
   set guioptions-=r " scrollbar right
@@ -161,7 +174,7 @@ endif
 colorscheme desert
 " Make some changes to colorscheme desert.
 hi LineNr guifg=#666600
-hi ColorColumn guibg=#552222
+"hi ColorColumn guibg=gray21
 
 " Enable file type detection.
 filetype plugin indent on
@@ -176,7 +189,7 @@ au BufNewFile,BufRead *.sty setlocal sw=2 ts=2 et
 " Indent Ruby with 2 spaces
 au FileType ruby,eruby setlocal sw=2 ts=2 et
 " Indent html,php with 2 spaces
-au FileType html,php setlocal sw=2 ts=2 et
+au FileType html,php setlocal sw=2 ts=2 noet
 " Indent coffeescript with 2 spaces and enable fold by indent
 au BufNewFile,BufRead *.coffee setlocal sw=2 ts=2 et foldmethod=indent nofoldenable
 

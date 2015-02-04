@@ -70,3 +70,8 @@ function erb2haml ()
 	html2haml --erb $1.html.erb $1.haml
 	delete "erb2html" $1.html.erb
 }
+
+function add_image_data () {
+	exiftool -Artist='Micha Rosenbaum' -Author='Micha Rosenbaum' -Creator='Micha Rosenbaum' -Copyright='CC-BY-SA 3.0 DE' .
+	delete "image_data" *original
+}
