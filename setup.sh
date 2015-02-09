@@ -7,6 +7,7 @@ rm -f ~/.gitconfig
 rm -f ~/.signature
 rm -f ~/.Xmodmap
 rm -f ~/.vimrc
+rm -f ~/.ackrc
 rm -rf ~/.i3
 rm -rf ~/bin
 rm -rf ~/.vim
@@ -18,6 +19,7 @@ ln -s ~/.tildeslash/.gitconfig ~/.gitconfig
 ln -s ~/.tildeslash/.signature ~/.signature
 ln -s ~/.tildeslash/.Xmodmap ~/.Xmodmap
 ln -s ~/.tildeslash/.vimrc ~/.vimrc
+ln -s ~/.tildeslash/.ackrc ~/.ackrc
 ln -s ~/.tildeslash/.i3 ~/.i3
 ln -s ~/.tildeslash/bin ~/bin
 ln -s ~/.tildeslash/.vim ~/.vim
