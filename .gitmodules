@@ -30,3 +30,7 @@
 	path = .vim/bundle/easymotion
 	url = https://github.com/Lokaltog/vim-easymotion.git
 	ignore = dirty
+[submodule ".vim/bundle/git-gutter"]
+	path = .vim/bundle/git-gutter
+	url = https://github.com/airblade/vim-gitgutter.git
+	ignore = dirty

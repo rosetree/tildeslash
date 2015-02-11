@@ -176,6 +176,13 @@ colorscheme desert
 hi LineNr guifg=#666600
 "hi ColorColumn guibg=gray21
 
+" Add some colorscheme changes for GitGutter.
+hi clear SignColumn
+hi GitGutterAddDefault       guibg=grey20
+hi GitGutterDeleteDefault    guibg=grey20
+hi GitGutterChangeDefault    guibg=grey20
+hi GitGutterInvisibleDefault guibg=grey20
+
 " Enable file type detection.
 filetype plugin indent on
 
