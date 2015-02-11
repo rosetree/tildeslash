@@ -173,8 +173,8 @@ endif
 
 colorscheme desert
 " Make some changes to colorscheme desert.
-hi LineNr guifg=#666600
-"hi ColorColumn guibg=gray21
+hi LineNr  guifg=#666600
+hi NonText guibg=grey20
 
 " Add some colorscheme changes for GitGutter.
 hi clear SignColumn
