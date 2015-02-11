@@ -34,3 +34,7 @@
 	path = .vim/bundle/git-gutter
 	url = https://github.com/airblade/vim-gitgutter.git
 	ignore = dirty
+[submodule ".vim/bundle/ack.vim"]
+	path = .vim/bundle/ack.vim
+	url = https://github.com/mileszs/ack.vim.git
+	ignore = dirty

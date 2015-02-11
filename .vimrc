@@ -134,6 +134,9 @@ nnoremap gz :!zeal --query "<cword>"&<CR><CR>
 " Quickly open meld and diff the current file with version control.
 nnoremap gd :!meld %&<CR><CR>
 
+" Quickly search for current word in all files.
+nmap <Leader>' :Ack <c-r>=expand("<cword>")<cr><cr>
+
 " Use `s{char}{char}{label}` to navigate through the file.
 nmap s <Plug>(easymotion-s2)
 
