@@ -23,7 +23,7 @@ alias yt2opus='youtube-dl -x --audio-format opus --audio-quality 0'
 
 # Show custom git logs.
 #alias gitlogs='git log --format="%Cgreen%h%Creset %s%n%Cblue(%an <%ae>)"%n'
-alias gitlogs='git log --format="%Cgreen%h %Cblue(%an <%ae>)"%n%s%n'
+alias gitlogs="git log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all"
 
 # Open files in existing GVim window
 alias gvim='gvim --remote-silent'
@@ -32,11 +32,12 @@ alias svim='gvim -S .session.vim'
 # Start Vim in terminal with local session file
 alias vims='vim -S .session.vim'
 
+alias ag='ag --pager "less -r"'
 alias ack='ack-grep'
 
 # This finds all lines containing `TODO', `FIXME' or `XXX' in the current
 # working directory and all subdirectories.
-alias todo='ack-grep "(TODO|FIXME|X{3})"'
+alias todo='ag -i "(TODO|FIXME|X{3})"'
 
 # A delete function, that only moves deleted files to a folder in ~. This
 # function requires a tag as first parameter.
