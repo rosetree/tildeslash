@@ -191,6 +191,7 @@ filetype plugin indent on
 
 " All files ending with `.md` should be handled as markdown.
 au BufNewFile,BufRead *.md setlocal filetype=markdown
+au TextChanged,TextChangedI *.md silent write
 " For all text files set 'textwidth' to 78 characters.
 au FileType text setlocal textwidth=78
 " Indent LaTeX with 2 spaces
