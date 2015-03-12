@@ -7,6 +7,7 @@ alias grep='grep --color=auto'
 alias ll='ls -AlhF'
 alias la='ls -A'
 alias l='ls -CF'
+alias ld="ll | grep -E '^d'"
 
 # Quickly connect monitors
 alias mon_cm='xrandr --output VGA-0 --auto --rotate left --right-of LVDS'
