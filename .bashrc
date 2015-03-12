@@ -30,7 +30,7 @@ shopt -s checkwinsize
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
 # Only show the current working dir in the prompt.
-PS1="\[\e[0;36m\]\w\$ \[\e[0m\]"
+PS1="\n\[\e[0;36m\]\w [jobs: \j]\n\$ \[\e[0m\]"
 # Only show the current working dir in the title.
 PS1="\[\e]0;\w\a\]$PS1"
 
