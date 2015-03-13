@@ -184,17 +184,14 @@ if &t_Co > 2 || has("gui_running")
   match Todo /\(\(X\|%\)\{3}\|#MR\|TODO\)/
 endif
 
-colorscheme desert
-" Make some changes to colorscheme desert.
-hi LineNr  guifg=#666600
-hi NonText guibg=grey20
-
 " Add some colorscheme changes for GitGutter.
+set background=light
 hi clear SignColumn
-hi GitGutterAddDefault       guibg=grey20
-hi GitGutterDeleteDefault    guibg=grey20
-hi GitGutterChangeDefault    guibg=grey20
-hi GitGutterInvisibleDefault guibg=grey20
+hi link SignColumn                NonText
+hi link GitGutterAddDefault       NonText
+hi link GitGutterDeleteDefault    NonText
+hi link GitGutterChangeDefault    NonText
+hi link GitGutterInvisibleDefault NonText
 
 " Enable file type detection.
 filetype plugin indent on
