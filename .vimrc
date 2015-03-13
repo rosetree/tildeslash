@@ -112,10 +112,6 @@ noremap <Up> <NOP>
 noremap <Right> <NOP>
 noremap <Down> <NOP>
 noremap <Left> <NOP>
-noremap h <NOP>
-noremap j <NOP>
-noremap k <NOP>
-noremap l <NOP>
 
 " Source:
 "   http://vimrcfu.com/snippet/77
@@ -126,6 +122,9 @@ vnoremap K :m '<-2<CR>gv=gv
 
 " Copy from cursor to the end of the line.
 noremap Y y$
+
+nnoremap <Leader>[ :GitGutterPrevHunk<CR>
+nnoremap <Leader>] :GitGutterNextHunk<CR>
 
 " Open new vertical split window and switch to it.
 nnoremap <Leader>v <C-w>v<C-w>l
