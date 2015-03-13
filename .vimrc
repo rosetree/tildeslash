@@ -62,6 +62,9 @@ set viminfo+=n~/tmp/.vim/viminfo
 " The two slashes at the end of the swap directory tell Vim it should use the
 " whole path as file name. `/` is replaced with `%`.
 set directory^=~/tmp/.vim/swap//
+" Use persisten undo
+set undodir=~/tmp/.vim/undo/
+set undofile
 " Always show the status line.
 set laststatus=2
 " Disable my mouse in Vim; I don't use it anyway.

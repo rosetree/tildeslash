@@ -27,6 +27,7 @@ ln -s ~/.tildeslash/.vim ~/.vim
 # Directory used to store temporary vim files.
 mkdir -p ~/tmp/.vim/swap
 mkdir -p ~/tmp/.vim/bundle
+mkdir -p ~/tmp/.vim/undo
 
 # Install vim plugins.
 cd ~/.tildeslash && git submodule update --init
