@@ -10,6 +10,7 @@
 "
 " Inspiration:
 "   https://github.com/jdavis/dotfiles/blob/master/.vimrc
+"   http://mixandgo.com/blog/vim-config-for-rails-ninjas
 "   and many others ...
 
 set nocompatible
@@ -79,10 +80,16 @@ set wildignore=*.pdf,*.aux,*.toc,*.lot,*.out,*.lock,*.desktop,*.lof
 set ssop-=options
 " Show some whitespace.
 set listchars=tab:→\ ,nbsp:_,trail:·
-"set list
+set list
+
+" Allow project specific .vimrc files
+set exrc
 
 " Default tex mode: LaTeX.
 let g:tex_flavor='latex'
+
+" Use tree like directory listing
+let g:netrw_liststyle = 3
 
 " Use tab for snippets.
 let g:UltiSnipsExpandTrigger="<tab>"
@@ -210,6 +217,9 @@ au BufNewFile,BufRead *.coffee setlocal sw=2 ts=2 et foldmethod=indent nofoldena
 " Enable spell checking when an language code is present in the filename.
 au BufNewFile,BufRead *.en.* setlocal spell spelllang=en
 au BufNewFile,BufRead *.de.* setlocal spell spelllang=de
+
+" Automatically load this configuration after saving.
+au BufWritePost .vimrc so $MYVIMRC
 
 " When editing a file, always jump to the last known cursor position.
 " Don't do it when the position is invalid or when inside an event handler
