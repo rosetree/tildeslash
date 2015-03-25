@@ -23,6 +23,8 @@ ln -s ~/.tildeslash/.ackrc ~/.ackrc
 ln -s ~/.tildeslash/.i3 ~/.i3
 ln -s ~/.tildeslash/bin ~/bin
 ln -s ~/.tildeslash/.vim ~/.vim
+# Voom requirement
+ln -s ~/.tildeslash/.vim ~/dotvim
 
 # Directory used to store temporary vim files.
 mkdir -p ~/tmp/.vim/swap
