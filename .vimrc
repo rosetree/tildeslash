@@ -16,7 +16,7 @@
 set nocompatible
 
 " Load pathogen, install plugins and help files.
-runtime bundle/pathogen/autoload/pathogen.vim
+runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#infect('~/.vim/bundle/{}', '~/tmp/.vim/bundle/{}')
 call pathogen#helptags()
 

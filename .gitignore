@@ -4,5 +4,6 @@ bin
 # Vim related stuff
 .vim/spell
 .vim/.netrwhist*
+.vim/bundle/
 # I'm not using Emacs at the moment
 .emacs.d

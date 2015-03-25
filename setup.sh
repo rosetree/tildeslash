@@ -30,6 +30,9 @@ mkdir -p ~/tmp/.vim/bundle
 mkdir -p ~/tmp/.vim/undo
 
 # Install vim plugins.
-cd ~/.tildeslash && git submodule update --init
+cd ~/.tildeslash/.vim/bundle
+git clone https://github.com/airblade/voom.git
+cd voom
+./voom
 
 source "./.private/setup.sh"
