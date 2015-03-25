@@ -15,6 +15,9 @@ esac
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
 
+# Ignore some commands
+HISTIGNORE="ll:ls:la:cd -:fg:bg"
+
 # append to the history file, don't overwrite it
 shopt -s histappend
 

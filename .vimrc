@@ -9,9 +9,13 @@
 "   example `:help :ab`.
 "
 " Inspiration:
+"   https://github.com/airblade/dotvim
 "   https://github.com/jdavis/dotfiles/blob/master/.vimrc
 "   http://mixandgo.com/blog/vim-config-for-rails-ninjas
 "   and many others ...
+"
+" TODO:
+"   https://github.com/t-cyrill/userpack/tree/master/dotfiles/.vim
 
 set nocompatible
 
@@ -56,6 +60,8 @@ set smarttab
 set smartindent
 set autoindent
 
+set complete+=kspell
+
 " Wrap lines that are to long for my view.
 set wrap
 " Don't store viminfo at $HOME.
@@ -90,6 +96,9 @@ let g:tex_flavor='latex'
 
 " Use tree like directory listing
 let g:netrw_liststyle = 3
+
+" Add replacement on # for ruby string interplation.
+let g:surround_35 = "#{\r}"
 
 " Use tab for snippets.
 let g:UltiSnipsExpandTrigger="<tab>"
@@ -142,9 +151,6 @@ nnoremap gz :!zeal --query "<cword>"&<CR><CR>
 
 " Quickly open meld and diff the current file with version control.
 nnoremap gd :!meld %&<CR><CR>
-
-" Quickly search for current word in all files.
-nmap <Leader>' :Ack <c-r>=expand("<cword>")<cr><cr>
 
 " Use `s{char}{char}{label}` to navigate through the file.
 nmap s <Plug>(easymotion-s2)
