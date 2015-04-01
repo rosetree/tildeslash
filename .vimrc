@@ -220,6 +220,8 @@ au BufNewFile,BufRead *.coffee setlocal sw=2 ts=2 et foldmethod=indent nofoldena
 au BufNewFile,BufRead *.en.* setlocal spell spelllang=en
 au BufNewFile,BufRead *.de.* setlocal spell spelllang=de
 
+au BufNewFile,BufRead .gitmessage setlocal filetype=gitcommit
+
 " Automatically load this configuration after saving.
 au BufWritePost .vimrc so $MYVIMRC
 
