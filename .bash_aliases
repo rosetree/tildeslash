@@ -19,6 +19,9 @@ alias mkdir='mkdir -p'
 # Use kramdown instead of the original markdown
 alias markdown='kramdown'
 
+# Quick check my writings for commonly misused phrases.
+alias check="diction -b -s -L de"
+
 # Download youtube videos in opus.
 alias yt2opus='youtube-dl -x --audio-format opus --audio-quality 0'
 
