@@ -21,6 +21,7 @@ alias markdown='kramdown'
 
 # Quick check my writings for commonly misused phrases.
 alias check="diction -b -s -L de"
+alias checken="diction -b -s -L en"
 
 # Download youtube videos in opus.
 alias yt2opus='youtube-dl -x --audio-format opus --audio-quality 0'
