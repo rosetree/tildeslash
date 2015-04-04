@@ -8,3 +8,4 @@ honza/vim-snippets
 Lokaltog/vim-easymotion
 airblade/vim-gitgutter
 airblade/voom
+tpope/vim-commentary
