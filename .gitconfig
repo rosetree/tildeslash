@@ -4,7 +4,7 @@
 	name = Micha Rosenbaum
 
 [core]
-	editor = gvim --remote-silent
+	editor = vim
 	excludesfile = ~/.gitexcludes
 
 [gui]
