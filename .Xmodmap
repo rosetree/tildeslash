@@ -2,3 +2,6 @@
 remove Lock = Caps_Lock
 keysym Caps_Lock = Multi_key
 add Lock = Caps_Lock
+
+! I don’t use the “Print” key, but I frequently use the Menu.
+keycode  107 = Menu NoSymbol Menu
