@@ -53,7 +53,7 @@ fi
 
 # Easily update vim plugins
 if [ -d ~/.tildeslash/.vim/bundle/voom ] ; then
-    export PATH="$PATH:~/.tildeslash/.vim/bundle/voom"
+	export PATH="$PATH:~/.tildeslash/.vim/bundle/voom"
 fi
 
 # enable programmable completion features (you don't need to enable
