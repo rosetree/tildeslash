@@ -50,8 +50,6 @@ set gdefault
 set ruler
 " Display incomplete commands in the lower right corner.
 set showcmd
-" Show line numbers per default.
-set number
 " Show matching parenthesis/brackets.
 set showmatch
 
@@ -223,7 +221,7 @@ au BufNewFile,BufRead *.de.* setlocal spell spelllang=de
 au BufNewFile,BufRead .gitmessage setlocal filetype=gitcommit
 
 " Automatically load this configuration after saving.
-au BufWritePost .vimrc so $MYVIMRC
+au BufWritePost .vimrc so %
 
 " When editing a file, always jump to the last known cursor position.
 " Don't do it when the position is invalid or when inside an event handler
@@ -232,7 +230,7 @@ au BufWritePost .vimrc so $MYVIMRC
 " position when opening a file.
 au BufReadPost *
       \ if line("'\"") > 1 && line("'\"") <= line("$") |
-      \   exe "normal! g`\"" |
+      \   exe "normal! g`\"zz" |
       \ endif
 
 " Convenient command to see the difference between the current buffer and the
