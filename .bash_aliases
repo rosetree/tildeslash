@@ -13,6 +13,9 @@ alias ld="ll | grep -E '^d'"
 alias mon_cm='xrandr --output VGA-0 --auto --rotate left --right-of LVDS'
 alias mon_jm='xrandr --output VGA-0 --auto --above LVDS'
 
+# Shutdown
+alias bye='sudo shutdown -P now'
+
 # Automatically create directory paths.
 alias mkdir='mkdir -p'
 
