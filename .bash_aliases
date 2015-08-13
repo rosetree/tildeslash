@@ -9,36 +9,19 @@ alias la='ls -A'
 alias l='ls -CF'
 alias ld="ll | grep -E '^d'"
 
-# Quickly connect monitors
-alias mon_cm='xrandr --output VGA-0 --auto --rotate left --right-of LVDS'
-alias mon_jm='xrandr --output VGA-0 --auto --above LVDS'
-
 # Shutdown
 alias bye='sudo shutdown -P now'
 
 # Automatically create directory paths.
 alias mkdir='mkdir -p'
 
-# Use kramdown instead of the original markdown
-alias markdown='kramdown'
-
 # Quick check my writings for commonly misused phrases.
 alias check="diction -b -s -L de"
 alias checken="diction -b -s -L en"
 
-# Download youtube videos in opus.
-alias yt2opus='youtube-dl -x --audio-format opus --audio-quality 0'
-
 # Show custom git logs.
 #alias gitlogs='git log --format="%Cgreen%h%Creset %s%n%Cblue(%an <%ae>)"%n'
 alias gitlogs="git log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all"
-
-# Open files in existing GVim window
-alias gvim='gvim --remote-silent'
-# Start GVim with local session file
-alias svim='gvim -S .session.vim'
-# Start Vim in terminal with local session file
-alias vims='vim -S .session.vim'
 
 alias ag='ag --pager "less -r"'
 alias ack='ack-grep'
