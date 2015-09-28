@@ -9,4 +9,5 @@ Lokaltog/vim-easymotion
 airblade/vim-gitgutter
 airblade/voom
 tpope/vim-commentary
+ledger/vim-ledger
 EinfachToll/DidYouMean
