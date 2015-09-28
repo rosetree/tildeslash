@@ -5,8 +5,6 @@ alias grep='grep --color=auto'
 
 # Some ls aliases
 alias ll='ls -AlhF'
-alias la='ls -A'
-alias l='ls -CF'
 alias ld="ll | grep -E '^d'"
 
 # Shutdown
@@ -22,9 +20,6 @@ alias checken="diction -b -s -L en"
 # Show custom git logs.
 #alias gitlogs='git log --format="%Cgreen%h%Creset %s%n%Cblue(%an <%ae>)"%n'
 alias gitlogs="git log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all"
-
-alias ag='ag --pager "less -r"'
-alias ack='ack-grep'
 
 # This finds all lines containing `TODO', `FIXME' or `XXX' in the current
 # working directory and all subdirectories.

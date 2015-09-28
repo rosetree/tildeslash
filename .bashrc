@@ -51,10 +51,6 @@ if [ -d ~/bin ]; then
 	export PATH="$PATH:~/bin"
 fi
 
-# Easily update vim plugins
-if [ -d ~/.tildeslash/.vim/bundle/voom ] ; then
-	export PATH="$PATH:~/.tildeslash/.vim/bundle/voom"
-fi
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile

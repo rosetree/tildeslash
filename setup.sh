@@ -20,6 +20,7 @@ ln -s ~/.tildeslash/.vimrc ~/.vimrc
 ln -s ~/.tildeslash/.ackrc ~/.ackrc
 ln -s ~/.tildeslash/.i3 ~/.i3
 ln -s ~/.tildeslash/bin ~/bin
+ln -s ~/.tildeslash/.vim/bundle/voom/voom ~/bin/voom
 ln -s ~/.tildeslash/.vim ~/.vim
 # Voom requirement
 ln -s ~/.tildeslash/.vim ~/dotvim
