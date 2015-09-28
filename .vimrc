@@ -177,6 +177,9 @@ if has("gui_running")
   " Turn of blinking cursor in normal mode. Keep blinking in insert mode
   " to remind my off leaving it when I finished typing.
   set guicursor=n:blinkon0
+  set background=light
+else
+  set background=dark
 endif " has("gui_running")
 
 " Switch syntax highlighting on, when the terminal has colors
@@ -188,7 +191,6 @@ if &t_Co > 2 || has("gui_running")
 endif
 
 " Add some colorscheme changes for GitGutter.
-set background=light
 hi clear SignColumn
 hi link SignColumn                NonText
 hi link GitGutterAddDefault       NonText
