@@ -7,3 +7,9 @@ published by Sam Hocevar. See the [LICENSE][] file for more details.
 
 [wtfpl]: http://www.wtfpl.net/
 [license]: https://raw.githubusercontent.com/rosetree/tildeslash/master/LICENSE
+
+## Git
+
+The commit template is stolen from Eric James Michael Ritz (@ejmr)
+
+http://ericjmritz.name/2015/05/27/my-global-git-commit-template/

@@ -12,3 +12,5 @@
 
 [diff]
 	tool = meld
+[commit]
+	template = /home/micha/.tildeslash/git-commit-template
