@@ -255,5 +255,11 @@ function! HLNext (blinktime)
   redraw
 endfunction
 
+
+" abbreviations for phrases I use frequently
+:ab mfg Micha<CR>grüßt freundlich.
+:ab Mfg Micha Rosenbaum<CR>grüßt freundlich.
+
+
 " vim: sw=2 ts=2 et
 " eof ~/.vimrc
