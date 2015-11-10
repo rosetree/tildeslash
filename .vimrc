@@ -215,6 +215,9 @@ au FileType ruby,eruby setlocal sw=2 ts=2 et
 au FileType html,php setlocal sw=2 ts=2 noet
 " Indent coffeescript with 2 spaces and enable fold by indent
 au BufNewFile,BufRead *.coffee setlocal sw=2 ts=2 et foldmethod=indent nofoldenable
+" Indent JavaScript files with 4 spaces, as recommended by Douglas Crockford
+" http://javascript.crockford.com/code.html
+au FileType javascript setlocal sw=4 ts=4 et
 
 " Enable spell checking when an language code is present in the filename.
 au BufNewFile,BufRead *.en.* setlocal spell spelllang=en
