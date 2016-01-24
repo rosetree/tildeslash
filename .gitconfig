@@ -5,7 +5,7 @@
 
 [core]
 	editor = vim
-	excludesfile = ~/.gitexcludes
+	excludesfile = ~/Documents/projects/mdr/tildeslash/.gitexcludes
 
 [gui]
 	editor = gvim --remote-silent
@@ -13,4 +13,4 @@
 [diff]
 	tool = meld
 [commit]
-	template = /home/micha/.tildeslash/git-commit-template
+	template = ~/Documents/projects/mdr/tildeslash/git-commit-template
