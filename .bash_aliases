@@ -25,6 +25,8 @@ alias gitlogs="git log --graph --abbrev-commit --decorate --date=relative --form
 # working directory and all subdirectories.
 alias todo='ag -i "(TODO|FIXME|X{3})"'
 
+alias man='man --nj'
+
 # A delete function, that only moves deleted files to a folder in ~. This
 # function requires a tag as first parameter.
 function delete ()
