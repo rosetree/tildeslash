@@ -54,6 +54,8 @@ if [ -f ~/Documents/accounting/master.ledger ]; then
 	export LEDGER_FILE=~/Documents/accounting/master.ledger
 fi
 
+export EDITOR=nvim
+
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).

@@ -4,7 +4,7 @@
 	name = Micha Rosenbaum
 
 [core]
-	editor = vim
+	editor = nvim
 	excludesfile = ~/Documents/projects/mdr/tildeslash/.gitexcludes
 
 [gui]
