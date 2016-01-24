@@ -11,3 +11,4 @@ airblade/voom
 tpope/vim-commentary
 ledger/vim-ledger
 EinfachToll/DidYouMean
+editorconfig/editorconfig-vim

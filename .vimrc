@@ -224,6 +224,7 @@ au BufNewFile,BufRead *.en.* setlocal spell spelllang=en
 au BufNewFile,BufRead *.de.* setlocal spell spelllang=de
 
 au BufNewFile,BufRead .gitmessage setlocal filetype=gitcommit
+au BufNewFile .editorconfig :!cp ~/Documents/projects/mdr/tildeslash/editorconfig %
 
 " Automatically load this configuration after saving.
 au BufWritePost .vimrc so %
