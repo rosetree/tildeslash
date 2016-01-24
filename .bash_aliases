@@ -25,9 +25,6 @@ alias gitlogs="git log --graph --abbrev-commit --decorate --date=relative --form
 # working directory and all subdirectories.
 alias todo='ag -i "(TODO|FIXME|X{3})"'
 
-# Easily lock my screen, when I am about to leave.
-alias afk_coffee='i3lock -c c0ffee -i ~/.i3/lock-coffee.png'
-
 # A delete function, that only moves deleted files to a folder in ~. This
 # function requires a tag as first parameter.
 function delete ()
