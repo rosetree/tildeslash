@@ -32,7 +32,7 @@ shopt -s checkwinsize
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
-PS1="\n\[\e[0;32m\]\w · \j running\n\$ \[\e[0m\]"
+PS1='\n\[\e[0;32m\]\w$(__git_ps1) · \j running\n\$ \[\e[0m\]'
 PS1="\[\e]0;\w (\j running)\a\]$PS1"
 
 # Add an "alert" alias for long running commands.  Use like so:
