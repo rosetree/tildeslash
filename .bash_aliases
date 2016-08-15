@@ -72,3 +72,22 @@ function add_image_data () {
 	exiftool -Artist="$*" -Author="$*" -Creator="$*" .
 	delete "image_data" *original
 }
+
+function mv_img ()
+{
+  # Sort images in folders of their date (2016-07-11)
+  exiftool -d "%Y-%m-%d" "-Directory<CreateDate" .
+
+  # Rename images recursively:
+  # → use an id ordered by current filenames;
+  # → append my monogram (mr)
+  # → and use the current file extension, but lowercased
+  # ⇒ 000_mr.jpg 001_mr.jpg 002_mr.jpg
+  # TODO: Also write Artist tag?
+  # TODO: Don’t use hardcoded monogram?
+  exiftool -r -fileorder filename -FileName="%.3c_mr.%le" .
+
+  # Rename all images to their creation date and time appended by the previous
+  # generated id_monogram part. Do this recursively through all subdirectories.
+  exiftool -r "-FileName<CreateDate" -d "%Y%m%d_%H%M%S_%%f.%%e" .
+}
