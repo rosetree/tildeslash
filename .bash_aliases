@@ -69,6 +69,6 @@ function erb2haml ()
 }
 
 function add_image_data () {
-	exiftool -Artist='Micha Rosenbaum' -Author='Micha Rosenbaum' -Creator='Micha Rosenbaum' -Copyright='CC-BY-SA 3.0 DE' .
+	exiftool -Artist="$*" -Author="$*" -Creator="$*" .
 	delete "image_data" *original
 }
