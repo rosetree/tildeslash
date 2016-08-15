@@ -55,6 +55,12 @@ function rm ()
 	done
 }
 
+function title
+{
+	# http://superuser.com/a/84711
+	PROMPT_COMMAND="echo -ne \"\033]0;$@\007\""
+}
+
 # Convert an .html.erb file to .haml. Delete the old .html.erb file.
 function erb2haml ()
 {
