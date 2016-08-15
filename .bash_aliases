@@ -1,7 +1,7 @@
 #!/bin/bash
 
 alias ls='ls --color=auto'
-alias grep='grep --color=auto'
+alias grep='grep -inr --color=auto'
 
 # Some ls aliases
 alias ll='ls -AlhF'
