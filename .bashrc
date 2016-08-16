@@ -44,6 +44,11 @@ if [ -f ~/Documents/projects/mdr/tildeslash/.bash_aliases ]; then
 	. ~/Documents/projects/mdr/tildeslash/.bash_aliases
 fi
 
+if [ -f ~/Documents/projects/mdr/tildeslash/bash/jump.sh ]; then
+	export MARKPATH=$HOME/Documents/.xxx/marks
+	. ~/Documents/projects/mdr/tildeslash/bash/jump.sh
+fi
+
 # Local scripts.
 if [ -d ~/bin ]; then
 	export PATH="$PATH:~/bin"
