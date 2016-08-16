@@ -2,15 +2,17 @@
 	signingkey = 7694EB9B
 	email = micha@rosetree.de
 	name = Micha Rosenbaum
-
 [core]
 	editor = nvim
 	excludesfile = ~/Documents/projects/mdr/tildeslash/.gitexcludes
-
+	abbrev = 12
 [gui]
-	editor = gvim --remote-silent
-
+	editor = gedit
 [diff]
 	tool = meld
+[pull]
+	rebase = true
+[push]
+	default = simple
 [commit]
 	template = ~/Documents/projects/mdr/tildeslash/git-commit-template
