@@ -49,6 +49,11 @@ if [ -f ~/Documents/projects/mdr/tildeslash/bash/jump.sh ]; then
 	. ~/Documents/projects/mdr/tildeslash/bash/jump.sh
 fi
 
+if [ -f ~/Documents/projects/mdr/tildeslash/bash/tmp_work.sh ]; then
+	. ~/Documents/projects/mdr/tildeslash/bash/tmp_work.sh
+fi
+
+
 # Local scripts.
 if [ -d ~/bin ]; then
 	export PATH="$PATH:~/bin"
