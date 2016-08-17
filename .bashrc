@@ -76,4 +76,8 @@ if ! shopt -oq posix; then
 	fi
 fi
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+# allow local customization
+# http://www.anishathalye.com/2014/08/03/managing-your-dotfiles/
+if [ -f ~/.config/bashrc ]; then
+	source ~/.config/bashrc
+fi

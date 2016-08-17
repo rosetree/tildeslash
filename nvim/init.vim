@@ -43,8 +43,6 @@ set nowritebackup
 " Display Options {{{
 
 " Colors {{{
-set background=dark
-
 " Switch syntax highlighting on, when the terminal has colors
 if &t_Co > 2
   syntax on
@@ -212,6 +210,13 @@ augroup configgroup
         \ endif
 augroup END
 
+" }}}
+
+" Local Customization {{{
+let $LOCALFILE=expand("~/.config/vimrc")
+if filereadable($LOCALFILE)
+  source $LOCALFILE
+endif
 " }}}
 
 " eof ~/.config/nvim/init.vim
