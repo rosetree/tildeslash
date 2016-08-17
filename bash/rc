@@ -39,8 +39,8 @@ PS1='\n\[\e[0;32m\]\w$(__git_ps1) · \j running\n\$ \[\e[0m\]'
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 # Alias definitions.
-if [ -f ~/Documents/projects/mdr/tildeslash/.bash_aliases ]; then
-	. ~/Documents/projects/mdr/tildeslash/.bash_aliases
+if [ -f ~/Documents/projects/mdr/tildeslash/bash/aliases ]; then
+	. ~/Documents/projects/mdr/tildeslash/bash/aliases
 fi
 
 if [ -f ~/Documents/projects/mdr/tildeslash/bash/jump.sh ]; then
