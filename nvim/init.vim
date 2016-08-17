@@ -189,6 +189,7 @@ augroup configgroup
   " Use correct filetype, when I’m preparing a commit
   au BufEnter .gitmessage setlocal filetype=gitcommit
   au FileType gitcommit :nnoremap <Leader>s :Gsdiff<CR>:normal \WL<CR>
+  au FileType gitcommit setlocal commentstring=#\ %s
 
   " Indent ruby with 2 spaces and enable fold by indent
   au FileType ruby setlocal sw=2 ts=2 et foldmethod=indent
@@ -196,7 +197,12 @@ augroup configgroup
   " Indent coffeescript with 2 spaces and enable fold by indent
   au FileType coffee setlocal sw=2 ts=2 et foldmethod=indent
 
+  au FileType c setlocal nolist
+
   au BufNewFile .editorconfig :!cp ~/Documents/projects/mdr/tildeslash/editorconfig %
+
+  " Files with mail extensions are mail
+  au BufEnter *.mail setlocal filetype=mail
 
   " When editing a file, always jump to the last known cursor position and
   " center that position.
