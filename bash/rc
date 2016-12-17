@@ -32,7 +32,7 @@ shopt -s checkwinsize
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 export LESSHISTFILE=/dev/null
 
-PS1='\n\[\e[0;32m\]\w$(__git_ps1) · \j running\n\$ \[\e[0m\]'
+PS1='\n\[\e[0;32m\]\w$(__git_ps1)$(__todo_cnt_ps1)$(__done_cnt_ps1) (\j running)\n\$ \[\e[0m\]'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -52,6 +52,9 @@ if [ -f ~/Documents/projects/mdr/tildeslash/bash/tmp_work.sh ]; then
 	. ~/Documents/projects/mdr/tildeslash/bash/tmp_work.sh
 fi
 
+if [ -f ~/Documents/projects/mdr/tildeslash/bash/todotxt.sh ]; then
+	. ~/Documents/projects/mdr/tildeslash/bash/todotxt.sh
+fi
 
 # Local scripts.
 if [ -d ~/bin ]; then
