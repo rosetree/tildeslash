@@ -28,15 +28,15 @@ todotoday()
 todocalendar ()
 {
   FILENAME=/tmp/todotxt-calendar-${USER}-$(date +%s)
-  echo "LANG=utf-8" >> $FILENAME
+  echo "LANG=utf-8" >> "$FILENAME"
   awk 'match($0, /due:[0-9]{4}-[0-9]{2}-[0-9]{2}/) {
     # Start at the found match, but cut of “due:2016-” (offset of 9). Use the
     # substring “12-17” (length of 5). Prepend with a tab, followed by the
     # whole line.
     print substr($0, RSTART+9, 5) "\t" $0
-  }' ~/todo.txt | sed 's/\(due:\)\{,1\}[0-9]\{4\}-[0-9]\{2\}-[0-9]\{2\} //g' - >> $FILENAME
-  command calendar -f $FILENAME -B 1
-  command rm $FILENAME
+  }' ~/todo.txt | sed 's/\(due:\)\{,1\}[0-9]\{4\}-[0-9]\{2\}-[0-9]\{2\} //g' - >> "$FILENAME"
+  command calendar -f "$FILENAME" -B 1
+  command rm "$FILENAME"
 }
 
 # todocal is a shortcut for todocalendar
