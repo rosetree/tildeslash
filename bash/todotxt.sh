@@ -13,7 +13,7 @@
 # “(due:)?2016-12-17” for better readability.
 todotoday()
 {
-  TODAY=`date +%F`
+  TODAY=$(date +%F)
   command grep "due:$TODAY" ~/todo.txt | sed 's/\(due:\)\{,1\}[0-9]\{4\}-[0-9]\{2\}-[0-9]\{2\} //g' -
 }
 
@@ -27,7 +27,7 @@ todotoday()
 # TODO: This doesn’t handle already done items. They are shown just as well.
 todocalendar ()
 {
-  FILENAME=/tmp/todotxt-calendar-${USER}-`date +%s`
+  FILENAME=/tmp/todotxt-calendar-${USER}-$(date +%s)
   echo "LANG=utf-8" >> $FILENAME
   awk 'match($0, /due:[0-9]{4}-[0-9]{2}-[0-9]{2}/) {
     # Start at the found match, but cut of “due:2016-” (offset of 9). Use the
@@ -52,7 +52,7 @@ alias todocal=todocalendar
 #     PS1='\w\$(__todo_cnt_ps1)\$ '
 __todo_cnt_ps1 ()
 {
-  TODAY=`date +%F`
+  TODAY=$(date +%F)
   CNT=$(command grep "due:$TODAY" ~/todo.txt | grep -c '^[^x]' -)
   if [ "$CNT" -gt "0" ]; then
     echo " ($CNT todo)"
@@ -68,7 +68,7 @@ __todo_cnt_ps1 ()
 #     PS1='\w\$(__done_cnt_ps1)\$ '
 __done_cnt_ps1 ()
 {
-  TODAY=`date +%F`
+  TODAY=$(date +%F)
   CNT=$(command grep -c "x $TODAY" ~/todo.txt)
   if [ "$CNT" -gt "0" ]; then
     echo " ($CNT done)"
