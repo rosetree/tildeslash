@@ -52,6 +52,10 @@ alias todocal=todocalendar
 #     PS1='\w\$(__todo_cnt_ps1)\$ '
 __todo_cnt_ps1 ()
 {
+  if [ ! -f $HOME/todo.txt ]; then
+    return
+  fi
+
   TODAY=$(date +%F)
   CNT=$(command grep "due:$TODAY" ~/todo.txt | grep -c '^[^x]' -)
   if [ "$CNT" -gt "0" ]; then
@@ -68,6 +72,10 @@ __todo_cnt_ps1 ()
 #     PS1='\w\$(__done_cnt_ps1)\$ '
 __done_cnt_ps1 ()
 {
+  if [ ! -f $HOME/todo.txt ]; then
+    return
+  fi
+
   TODAY=$(date +%F)
   CNT=$(command grep -c "x $TODAY" ~/todo.txt)
   if [ "$CNT" -gt "0" ]; then
