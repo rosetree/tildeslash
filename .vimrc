@@ -142,7 +142,7 @@ nnoremap <Leader>h <C-w>s<C-w>j
 nnoremap <Leader>so :w<CR>:so %<CR>
 
 " Quickly open this file.
-nnoremap <Leader>rc :e ~/.tildeslash/.vimrc<CR>
+nnoremap <Leader>rc :e $MDR_TILDESLASH_DIR/.vimrc<CR>
 
 " Quickly open zeal and search for a keyword
 nnoremap gz :!zeal --query "<cword>"&<CR><CR>
@@ -224,7 +224,7 @@ au BufNewFile,BufRead *.en.* setlocal spell spelllang=en
 au BufNewFile,BufRead *.de.* setlocal spell spelllang=de
 
 au BufNewFile,BufRead .gitmessage setlocal filetype=gitcommit
-au BufNewFile .editorconfig :!cp ~/Documents/projects/mdr/tildeslash/editorconfig %
+au BufNewFile .editorconfig :!cp $MDR_TILDESLASH_DIR/editorconfig %
 
 " Automatically load this configuration after saving.
 au BufWritePost .vimrc so %

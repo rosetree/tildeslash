@@ -199,7 +199,7 @@ augroup configgroup
 
   au FileType c setlocal nolist
 
-  au BufNewFile .editorconfig :!cp ~/Documents/projects/mdr/tildeslash/editorconfig %
+  au BufNewFile .editorconfig :!cp $MDR_TILDESLASH_DIR/editorconfig %
 
   " Files with mail extensions are mail
   au BufEnter *.mail setlocal filetype=mail

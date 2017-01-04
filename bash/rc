@@ -41,21 +41,21 @@ PS1='\n\[\e[0;32m\]\w$(__git_ps1)$(__todo_cnt_ps1)$(__done_cnt_ps1) (\j running)
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 # Alias definitions.
-if [ -f ~/Documents/projects/mdr/tildeslash/bash/aliases ]; then
-	. ~/Documents/projects/mdr/tildeslash/bash/aliases
+if [ -f $MDR_TILDESLASH_DIR/bash/aliases ]; then
+	. $MDR_TILDESLASH_DIR/bash/aliases
 fi
 
-if [ -f ~/Documents/projects/mdr/tildeslash/bash/jump.sh ]; then
+if [ -f $MDR_TILDESLASH_DIR/bash/jump.sh ]; then
 	export MARKPATH=$HOME/Documents/.xxx/marks
-	. ~/Documents/projects/mdr/tildeslash/bash/jump.sh
+	. $MDR_TILDESLASH_DIR/bash/jump.sh
 fi
 
-if [ -f ~/Documents/projects/mdr/tildeslash/bash/tmp_work.sh ]; then
-	. ~/Documents/projects/mdr/tildeslash/bash/tmp_work.sh
+if [ -f $MDR_TILDESLASH_DIR/bash/tmp_work.sh ]; then
+	. $MDR_TILDESLASH_DIR/bash/tmp_work.sh
 fi
 
-if [ -f ~/Documents/projects/mdr/tildeslash/bash/todotxt.sh ]; then
-	. ~/Documents/projects/mdr/tildeslash/bash/todotxt.sh
+if [ -f $MDR_TILDESLASH_DIR/bash/todotxt.sh ]; then
+	. $MDR_TILDESLASH_DIR/bash/todotxt.sh
 fi
 
 # Local scripts.
