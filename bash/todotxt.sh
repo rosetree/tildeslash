@@ -42,6 +42,30 @@ todocalendar ()
 # todocal is a shortcut for todocalendar
 alias todocal=todocalendar
 
+# todoweekcalendar parses ~/todo.txt to fit the format of the `calendar` cli
+# utility (see `man calendar`). This only dates items, that have a due date
+# set. For better readability, all dates are removed before printing.
+# todoweekcalendar uses `date` to set the start date for `calendar` to the last
+# sunday and shows all todos from that sunday to seven days after.
+#
+# TODO: This doesn’t handle already done items. They are shown just as well.
+todoweekcalendar ()
+{
+  FILENAME=/tmp/todotxt-week-calendar-${USER}-$(date +%s)
+  echo "LANG=utf-8" >> "$FILENAME"
+  awk 'match($0, /due:[0-9]{4}-[0-9]{2}-[0-9]{2}/) {
+    # Start at the found match, but cut of “due:2016-” (offset of 9). Use the
+    # substring “12-17” (length of 5). Prepend with a tab, followed by the
+    # whole line.
+    print substr($0, RSTART+9, 5) "\t" $0
+  }' ~/todo.txt | sed 's/\(due:\)\{,1\}[0-9]\{4\}-[0-9]\{2\}-[0-9]\{2\} //g' - >> "$FILENAME"
+  command calendar -t $(date -d "last sunday" -I) -f "$FILENAME" -A 7
+  command rm "$FILENAME"
+}
+
+# todoweekcal is a shortcut for todoweekcalendar
+alias todoweekcal=todoweekcalendar
+
 # __todo_cnt_ps1 shows count of todo items in your ~/todo.txt that are
 # due:today. Entries marked as done (line starts with “x”) are ignored.
 # Nothing is printed if no entries are due:today.
