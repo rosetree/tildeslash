@@ -7,6 +7,9 @@
 #     Only show items for a single project or context.
 #   todostats:
 #     Count items for a project or a context.
+#   todotxttocalendar:
+#     An internal function that parses todo.txt to a calendar file and returns
+#     its location. To be used be todocalendar and todoweekcalendar.
 
 # todotoday prints all items, that are “due:today”. Items, that are already
 # finished, will also be shown. It removes all dates in the form of
