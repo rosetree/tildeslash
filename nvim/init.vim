@@ -91,9 +91,6 @@ set nohls
 " Allow project specific configuration
 set exrc
 
-" Disable my mouse in Vim; I don't use it anyway.
-set mouse=""
-
 " Use some smart indent and tab defaults.
 set smarttab
 set smartindent
@@ -122,24 +119,9 @@ inoremap <C-U> <C-G>u<C-U>
 " Remove trailing whitespace when hitting F12.
 " nnoremap <silent> <F12> :let _s=@/<Bar>:let position=getpos(".")<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:call setpos('.', position)<Bar>:nohl<CR>
 
-" Try breaking the habbit of using the arrow keys in Vim.
-noremap <Up> <NOP>
-noremap <Right> <NOP>
-noremap <Down> <NOP>
-noremap <Left> <NOP>
-
 " Copy from cursor to the end of the line.
 noremap Y y$
 
-" Use normal regex to search.
-" nnoremap / /\v
-" vnoremap / /\v
-
-" Jump to first char with ^ and jump to first char in column, that is not
-" whitespace, with `0`.
-noremap 0 ^
-noremap <Home> ^
-noremap ^ 0
 
 " Easily edit files in the current directory (:e %%/)
 cabbr <expr> %% expand('%:p:h')
