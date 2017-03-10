@@ -16,3 +16,5 @@
 	default = simple
 [commit]
 	template = ~/Documents/projects/mdr/tildeslash/git-commit-template
+[cola]
+	fontdiff = Go Mono,11,-1,5,50,0,0,0,0,0
