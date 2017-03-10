@@ -69,7 +69,7 @@ set wildmenu
 set wildignore=*.pdf,*.aux,*.toc,*.lot,*.out,*.lock,*.desktop,*.lof
 
 " Show some whitespace.
-set listchars=tab:→\ ,nbsp:_,trail:·
+set listchars=tab:\ \ ,nbsp:_,trail:·
 set list
 " }}}
 
