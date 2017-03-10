@@ -2,6 +2,8 @@
 #
 # Source:
 #   https://github.com/rosetree/tildeslash/
+#
+# vim: fdm=marker fdl=0 filetype=sh
 
 # If not running interactively, don't do anything
 case $- in
@@ -11,6 +13,7 @@ esac
 
 export CDPATH=/home/micha/Documents/:/home/micha/Documents/projects/
 
+# Bash History {{{
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
@@ -25,6 +28,7 @@ shopt -s histappend
 HISTSIZE=1000
 HISTFILESIZE=2000
 HISTFILE=~/tmp/.bash_history
+# }}} Bash History
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -70,6 +74,7 @@ fi
 
 export EDITOR=nvim
 
+# Bash Completion {{{
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
@@ -80,6 +85,7 @@ if ! shopt -oq posix; then
 		. /etc/bash_completion
 	fi
 fi
+# }}} Bash Completion
 
 # allow local customization
 # http://www.anishathalye.com/2014/08/03/managing-your-dotfiles/
