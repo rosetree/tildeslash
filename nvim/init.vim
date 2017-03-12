@@ -29,13 +29,6 @@ set undodir=~/tmp/.vim/undo/
 " Use persistent undo
 set undofile
 
-" Do not store global and local values in a session. They are likely to change
-" from time to time.
-set ssop-=options
-
-" Reread files, that changed on disk
-set autoread
-
 set nobackup
 set nowritebackup
 " }}}
@@ -53,8 +46,6 @@ endif
 " Statusline {{{
 " Show current branch in the statusline
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
-" Display cursor position
-set ruler
 " Display incomplete commands in the lower right corner.
 set showcmd
 " }}}
@@ -64,7 +55,6 @@ set wrap
 
 " Use bash-like behaviour by default
 set wildmode=longest,list,full
-set wildmenu
 " Ignore some file extensions.
 set wildignore=*.pdf,*.aux,*.toc,*.lot,*.out,*.lock,*.desktop,*.lof
 
@@ -76,8 +66,6 @@ set list
 " Editing {{{
 
 " Search & Substitute {{{
-" Enable incremental searching.
-set incsearch
 " Ignore case, when I search for lowercase patterns.
 set ignorecase
 " Don't ignore case, when I search for uppercase patterns.
@@ -91,22 +79,14 @@ set nohls
 " Allow project specific configuration
 set exrc
 
-" Use some smart indent and tab defaults.
-set smarttab
+" Use some smart indent and tab defaults. (More via vim-sensible.)
 set smartindent
-set autoindent
 " }}}
 
 " Vim Specific {{{
 if !has('nvim')
   " Don't store viminfo at $HOME.
   set viminfo+=n~/tmp/.vim/viminfo
-
-  " Use UTF-8 as encoding
-  set encoding=utf-8
-
-  " Allow backspacing over everything in insert mode.
-  set backspace=indent,eol,start
 endif
 " }}}
 

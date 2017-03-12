@@ -9,3 +9,4 @@ tpope/vim-commentary
 ledger/vim-ledger
 EinfachToll/DidYouMean
 editorconfig/editorconfig-vim
+tpope/vim-sensible
