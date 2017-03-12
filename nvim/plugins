@@ -3,9 +3,6 @@ jamessan/vim-gnupg
 tpope/vim-surround
 tpope/vim-rails
 kchmck/vim-coffee-script
-SirVer/ultisnips
-honza/vim-snippets
-Lokaltog/vim-easymotion
 airblade/vim-gitgutter
 airblade/voom
 tpope/vim-commentary
