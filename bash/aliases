@@ -1,5 +1,9 @@
 #!/bin/bash
 
+alias emacs="emacs -mm"
+alias vim="emacsclient -t"
+
+
 alias ls='ls --color=auto'
 alias grep='grep -inr --color=auto --exclude-dir=.git'
 
