@@ -1,5 +1,5 @@
 [user]
-	signingkey = 7694EB9B
+        signingkey = 7694EB9B
 	email = micha@rosetree.de
 	name = Micha Rosenbaum
 [core]
@@ -7,7 +7,7 @@
 	excludesfile = ~/Documents/projects/mdr/tildeslash/.gitexcludes
 	abbrev = 12
 [gui]
-	editor = gedit
+	editor = emacs
 [diff]
 	tool = meld
 [pull]
@@ -18,3 +18,9 @@
 	template = ~/Documents/projects/mdr/tildeslash/git-commit-template
 [cola]
 	fontdiff = Go Mono,11,-1,5,50,0,0,0,0,0
+[alias]
+	it = !git init && git commit -m "root" --allow-empty
+	stsh = stash --keep-index
+	staash = stash --include-untracked
+	staaash = stash --all
+	grog = log --graph --abbrev-commit --decorate --all --format=format:\"%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(dim white) - %an%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n %C(white)%s%C(reset)\"

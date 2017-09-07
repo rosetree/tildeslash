@@ -1,4 +1,6 @@
 .session*.vim
 *.swp
 *~
+*#
 .gitmessage
+.DS_Store
