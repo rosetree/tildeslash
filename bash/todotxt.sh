@@ -14,7 +14,7 @@
 todotoday()
 {
   TODAY=$(date +%F)
-  command grep "due:$TODAY" ~/todo.txt | sed 's/\(due:\)\{,1\}[0-9]\{4\}-[0-9]\{2\}-[0-9]\{2\} //g' -
+  command grep "due:$TODAY" ~/todo.txt | sed 's/\(due:\)\{0,1\}[0-9]\{4\}-[0-9]\{2\}-[0-9]\{2\} //g'
 }
 
 # todoto is a shortcut for todotoday, to use if you’re super funny ;-)
@@ -39,7 +39,7 @@ alias todocal=todocalendar
 todoweekcalendar ()
 {
   FILENAME=$(__todotxttocalendar)
-  command calendar -t $(date -d "last sunday" -I) -f "$FILENAME" -A 7
+  command calendar -t "$(date -d "last sunday" -I)" -f "$FILENAME" -A 7
   command rm "$FILENAME"
 }
 
@@ -62,9 +62,9 @@ __todotxttocalendar ()
     # substring “12-17” (length of 5). Prepend with a tab, followed by the
     # whole line.
     print substr($0, RSTART+9, 5) "\t" $0
-  }' ~/todo.txt | sed 's/\(due:\)\{,1\}[0-9]\{4\}-[0-9]\{2\}-[0-9]\{2\} //g' - >> "$FILENAME"
+  }' ~/todo.txt | sed 's/\(due:\)\{0,1\}[0-9]\{4\}-[0-9]\{2\}-[0-9]\{2\} //g' - >> "$FILENAME"
 
-  echo $FILENAME
+  echo "$FILENAME"
 }
 
 # __todo_cnt_ps1 shows count of todo items in your ~/todo.txt that are
@@ -77,12 +77,12 @@ __todotxttocalendar ()
 #     PS1='\w\$(__todo_cnt_ps1)\$ '
 __todo_cnt_ps1 ()
 {
-  if [ ! -f $HOME/todo.txt ]; then
+  if [ ! -f "$HOME/todo.txt" ]; then
     return
   fi
 
   TODAY=$(date +%F)
-  CNT=$(command grep "due:$TODAY" ~/todo.txt | grep -c '^[^x]' -)
+  CNT=$(command grep "due:$TODAY" ~/todo.txt | command grep -c '^[^x]' -)
   if [ "$CNT" -gt "0" ]; then
     echo " ($CNT todo)"
   fi
@@ -97,7 +97,7 @@ __todo_cnt_ps1 ()
 #     PS1='\w\$(__done_cnt_ps1)\$ '
 __done_cnt_ps1 ()
 {
-  if [ ! -f $HOME/todo.txt ]; then
+  if [ ! -f "$HOME/todo.txt" ]; then
     return
   fi
 
