@@ -5,3 +5,7 @@ bin
 .vim/spell
 .vim/.netrwhist*
 .vim/bundle/
+nvim/spell
+nvim/pack
+nvim/.netrwhist*
+nvim/bundle/
