@@ -1,15 +1,18 @@
 #!/bin/bash
 
-alias emacs="emacs -mm"
-alias vim="emacsclient -t"
-
-
-alias ls='ls --color=auto'
 alias grep='grep -inr --color=auto --exclude-dir=.git'
+
+alias w3m='w3m -M'
+
+alias em='emacsclient -c'
+alias em_cli='emacsclient'
 
 # Some ls aliases
 alias ll='ls -AlhF'
-alias ld="ll | grep -E '^d'"
+alias ld="ll | \grep -E '^d'"
+
+# alias vim='vim -u ~/.config/nvim/init.vim'
+alias voom='VIM_DIR=~/.config/nvim voom'
 
 # Shutdown
 alias bye='sudo shutdown -P now'
@@ -24,12 +27,13 @@ alias checken="diction -b -s -L en"
 # Show custom git logs.
 #alias gitlogs='git log --format="%Cgreen%h%Creset %s%n%Cblue(%an <%ae>)"%n'
 alias gitlogs="git log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all"
+alias mybranch="git rev-parse --abbrev-ref HEAD"
 
 # This finds all lines containing `TODO', `FIXME' or `XXX' in the current
 # working directory and all subdirectories.
-alias todo='ag -i "(TODO|FIXME|X{3})"'
+alias todo='rg -i "(TODO|FIXME|X{3})"'
 
-alias man='man --nj'
+# alias man='man --nj'
 
 # A delete function, that only moves deleted files to a folder in ~. This
 # function requires a tag as first parameter.

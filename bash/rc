@@ -1,4 +1,4 @@
-# ~/.bashrc
+#! /usr/bin/env sh
 #
 # Source:
 #   https://github.com/rosetree/tildeslash/
@@ -11,7 +11,9 @@ case $- in
       *) return;;
 esac
 
-export CDPATH=/home/micha/Documents/:/home/micha/Documents/projects/
+export MDR_TILDESLASH_DIR=/Users/micha/Documents/tildeslash
+
+export CDPATH=$HOME/Documents/:$HOME/Documents/projects/
 
 # Bash History {{{
 # don't put duplicate lines or lines starting with space in the history.
@@ -19,10 +21,17 @@ export CDPATH=/home/micha/Documents/:/home/micha/Documents/projects/
 HISTCONTROL=ignoreboth
 
 # Ignore some commands
-HISTIGNORE="ll:ls:la:cd -:fg:bg"
+HISTIGNORE="ll:ls:la:cd -:fg:bg:git add -p"
+
+export CLICOLOR=1
+
+# Source the git bash files of the current git version
+. /usr/local/Cellar/git/"$(git version | sed 's/[^0-9.]//g')"/etc/bash_completion.d/git-completion.bash
+. /usr/local/Cellar/git/"$(git version | sed 's/[^0-9.]//g')"/etc/bash_completion.d/git-prompt.sh
 
 # append to the history file, don't overwrite it
 shopt -s histappend
+shopt -s expand_aliases
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=1000
@@ -67,12 +76,17 @@ if [ -d ~/bin ]; then
 	export PATH="$PATH:~/bin"
 fi
 
+if [ -d ~/.composer/vendor/bin ]; then
+	export PATH="$PATH:~/.composer/vendor/bin"
+fi
+
 # Specify my bookkeeping file.
 if [ -f ~/Documents/accounting/master.ledger ]; then
 	export LEDGER_FILE=~/Documents/accounting/master.ledger
 fi
 
-export EDITOR=nvim
+export EDITOR="emacsclient -t"
+export VIM_DIR=~/.config/nvim
 
 # Bash Completion {{{
 # enable programmable completion features (you don't need to enable
@@ -92,3 +106,5 @@ fi
 if [ -f ~/.config/bashrc ]; then
 	source ~/.config/bashrc
 fi
+
+alias de='docker run -it --rm -v $PWD:/rootfs -v /Users/micha/.emacs.d:/root/.emacs.d silex/emacs --user root'
