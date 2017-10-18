@@ -131,11 +131,16 @@ focus_follows_mouse no
 
 # Give function to the audio control keys.
 # Louder.
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 1 -- +5% && killall -SIGUSR1 i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 1 +5% && killall -SIGUSR1 i3status
 # Quieter.
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 1 -- -5% && killall -SIGUSR1 i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 1 -5% && killall -SIGUSR1 i3status
 # Toggle mute.
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 1 toggle && killall -SIGUSR1 i3status
+# Give function to the brightness control keys.
+# Brighter.
+bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight +10%
+# Darker.
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -10%
 
 # Set a dark grey desktop background.
 exec --no-startup-id xsetroot -solid '#111111'
